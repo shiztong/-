@@ -4,6 +4,8 @@
 
 ## 算法设计文档
 
+完整发展路线见 [技术演进路标树](docs/recommendation/17-evolution-roadmap-tree.md)，包含召回、粗排、精排、重排、特征和训练评估的历史脉络、并行分支及未来方向；落到业务项目见 [分场景演进计划](docs/recommendation/21-scene-adoption-roadmap.md)。
+
 [信息流与短视频推荐：分层模型设计](docs/recommendation/README.md) 分别讲解两种场景的召回、粗排、精排、重排，以及特征、标签、损失函数、训练和服务。深度模型属于设计文档内容，当前教学代码尚未实现。
 
 方案评审从 [落地审查](docs/recommendation/12-readiness-review.md) 开始；[业界证据](docs/recommendation/13-industry-evidence.md) 记录本次核验的官方源码，[执行计划](docs/recommendation/14-production-execution.md)、[前沿规划](docs/recommendation/15-frontier-portfolio.md) 和 [收益评估](docs/recommendation/16-value-and-experiments.md) 说明实施依赖与验收方法。收益测算工具使用假设输入，不代表已获得实际业务增益。
