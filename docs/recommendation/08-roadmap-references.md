@@ -1,5 +1,7 @@
 # 08 方案组合、实验路线与公开资料
 
+本章是初始概览。后续评审发现模型组合不等于生产就绪：以 [12 落地审查](12-readiness-review.md) 的缺口和修正为准，实施见 [14](14-production-execution.md)，本轮已核验的实现与收益口径见 [13](13-industry-evidence.md)，前沿与经济评估见 [15](15-frontier-portfolio.md)、[16](16-value-and-experiments.md)。下方旧文献表并未全部重新核验。
+
 ## 1. 分场景的建议组合
 
 下表是可实施的设计起点，不代表所有业务必须使用相同模型。

@@ -1,0 +1,25 @@
+{
+  "assumption_notice": "All numbers are hypothetical planning inputs, not business measurements. Currency example: CNY.",
+  "dau": 1000000,
+  "baseline_minutes_per_user_day": 30,
+  "contribution_per_incremental_minute": 0.002,
+  "incremental_costs": {
+    "serving_per_day": 300,
+    "training_per_day": 80,
+    "data_storage_per_day": 20,
+    "engineering_one_time": 180000,
+    "engineering_amortization_days": 180
+  },
+  "scenarios": [
+    {"name": "downside", "relative_uplift": -0.005},
+    {"name": "no_effect", "relative_uplift": 0.0},
+    {"name": "small_positive", "relative_uplift": 0.01},
+    {"name": "larger_positive", "relative_uplift": 0.03}
+  ],
+  "experiment": {
+    "user_metric_stddev": 40,
+    "absolute_mde": 0.3,
+    "alpha_two_sided": 0.05,
+    "power": 0.8
+  }
+}

@@ -1,0 +1,90 @@
+[
+  {
+    "id": "meta-readme",
+    "repository": "facebookresearch/generative-recommenders",
+    "commit": "b8e6ff07c5d4c3354b0807ead76b74d771557fd7",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/facebookresearch/generative-recommenders/b8e6ff07c5d4c3354b0807ead76b74d771557fd7/README.md",
+    "sha256": "de05ed6d206be9f0d93fd96f26a7f9b7fd3d0aaf29ed77dd46afba089da920a1",
+    "bytes": 16067,
+    "accessed_date": "2026-11-03",
+    "verification": "source retrieved; experiments not reproduced"
+  },
+  {
+    "id": "hstu-source",
+    "repository": "facebookresearch/generative-recommenders",
+    "commit": "b8e6ff07c5d4c3354b0807ead76b74d771557fd7",
+    "path": "generative_recommenders/research/modeling/sequential/hstu.py",
+    "url": "https://raw.githubusercontent.com/facebookresearch/generative-recommenders/b8e6ff07c5d4c3354b0807ead76b74d771557fd7/generative_recommenders/research/modeling/sequential/hstu.py",
+    "sha256": "02c1e2b6226aded2809cd9ea8f270c9f1a35d29c1b044a4630cb9132fab5deb7",
+    "bytes": 29749,
+    "accessed_date": "2026-11-03",
+    "verification": "source retrieved; experiments not reproduced"
+  },
+  {
+    "id": "hstu-large-config",
+    "repository": "facebookresearch/generative-recommenders",
+    "commit": "b8e6ff07c5d4c3354b0807ead76b74d771557fd7",
+    "path": "configs/ml-1m/hstu-sampled-softmax-n128-large-final.gin",
+    "url": "https://raw.githubusercontent.com/facebookresearch/generative-recommenders/b8e6ff07c5d4c3354b0807ead76b74d771557fd7/configs/ml-1m/hstu-sampled-softmax-n128-large-final.gin",
+    "sha256": "2ec4b1fd429d62f7fc48aca7e867ec6e3b9e39b2c8651304fb6c02460a9c9d7e",
+    "bytes": 1404,
+    "accessed_date": "2026-11-03",
+    "verification": "source retrieved; experiments not reproduced"
+  },
+  {
+    "id": "sasrec-config",
+    "repository": "facebookresearch/generative-recommenders",
+    "commit": "b8e6ff07c5d4c3354b0807ead76b74d771557fd7",
+    "path": "configs/ml-1m/sasrec-sampled-softmax-n128-final.gin",
+    "url": "https://raw.githubusercontent.com/facebookresearch/generative-recommenders/b8e6ff07c5d4c3354b0807ead76b74d771557fd7/configs/ml-1m/sasrec-sampled-softmax-n128-final.gin",
+    "sha256": "dcf54ca6eef75aa3b3f8870e2c84c05708e16e2a1d1c4b3b3610e9d62992f94b",
+    "bytes": 1378,
+    "accessed_date": "2026-11-03",
+    "verification": "source retrieved; experiments not reproduced"
+  },
+  {
+    "id": "hstu-ultra-source",
+    "repository": "facebookresearch/generative-recommenders",
+    "commit": "b8e6ff07c5d4c3354b0807ead76b74d771557fd7",
+    "path": "generative_recommenders/modules/hstu_ultra.py",
+    "url": "https://raw.githubusercontent.com/facebookresearch/generative-recommenders/b8e6ff07c5d4c3354b0807ead76b74d771557fd7/generative_recommenders/modules/hstu_ultra.py",
+    "sha256": "d64b6dd827a441eca3dd62fced6ec6cf246e575c1c023815fa39bd0a7213fb33",
+    "bytes": 4185,
+    "accessed_date": "2026-11-03",
+    "verification": "source retrieved; experiments not reproduced"
+  },
+  {
+    "id": "monolith-readme",
+    "repository": "bytedance/monolith",
+    "commit": "135c491a52b151772b976af989d8bc938c44d210",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/bytedance/monolith/135c491a52b151772b976af989d8bc938c44d210/README.md",
+    "sha256": "f6f773da27da294eb464f3d41124f21b0f12a3de6d4a8d35b0dd5ef3ee07ca21",
+    "bytes": 1490,
+    "accessed_date": "2026-11-03",
+    "verification": "source retrieved; experiments not reproduced"
+  },
+  {
+    "id": "kuairand-readme",
+    "repository": "chongminggao/KuaiRand",
+    "commit": "f8dbf6678b3c9594050e3e813aeff0c942260ec4",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/chongminggao/KuaiRand/f8dbf6678b3c9594050e3e813aeff0c942260ec4/README.md",
+    "sha256": "65ecf78b1c273d1f20cf07b3b099ac0deb5aa3acff93e4e5ed1010c4c9f97957",
+    "bytes": 29575,
+    "accessed_date": "2026-11-03",
+    "verification": "source retrieved; experiments not reproduced"
+  },
+  {
+    "id": "tfrs-readme",
+    "repository": "tensorflow/recommenders",
+    "commit": "a8a90aee3f0b470cda96d47e26de99eedb7fc730",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/tensorflow/recommenders/a8a90aee3f0b470cda96d47e26de99eedb7fc730/README.md",
+    "sha256": "9d8de93c29371d2e92e4ac74761a4abdb427c039aff780cd3e625cf5f12858c0",
+    "bytes": 3056,
+    "accessed_date": "2026-11-03",
+    "verification": "source retrieved; experiments not reproduced"
+  }
+]
