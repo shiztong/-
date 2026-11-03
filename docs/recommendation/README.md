@@ -6,6 +6,8 @@
 
 ## 评审入口：先判断能否落地，再选择模型
 
+具体模型清单的核验与纠错见 [22 逐模型证据审计](22-model-by-model-evidence-audit.md)：区分 MF/YoutubeDNN/SDM/MIND/ComiRec、SIM/EGES、SE/SSL 与同名 XRec，提供固定版本源码、作者 slides 原表数字、复现限制与未核验项。
+
 需要完整技术发展路线时，从 [17 演进路标树](17-evolution-roadmap-tree.md) 开始，再读 [18 召回](18-retrieval-evolution.md)、[19 粗排与精排](19-ranking-evolution.md)、[20 重排/特征/训练评估](20-decision-feature-evolution.md) 和 [21 分场景推进](21-scene-adoption-roadmap.md)。这些章节区分历史脉络、并行分支、当前成熟能力与未来研究方向。
 
 现有方案仍有生产缺口；请优先阅读 [12 落地审查](12-readiness-review.md)、[13 已核验证据](13-industry-evidence.md)、[14 生产执行](14-production-execution.md)、[15 前沿规划](15-frontier-portfolio.md) 和 [16 收益与实验](16-value-and-experiments.md)。其中区分官方实现、公开报告、本项目假设及尚未完成的工程，避免把模型结构设计当成生产完成证明。
@@ -35,6 +37,7 @@
 | [19 粗排精排发展路标](19-ranking-evolution.md) | 交叉、兴趣、目标、计算范式的独立演进及协同 |
 | [20 决策与基础能力路标](20-decision-feature-evolution.md) | 重排、探索、特征、训练服务与评估闭环 |
 | [21 分场景采用路线](21-scene-adoption-roadmap.md) | 列表页/视频流分阶段目标、依赖、交付与退出条件 |
+| [22 逐模型证据审计](22-model-by-model-evidence-audit.md) | 具名模型纠错、源码、作者数据与复现/指标风险 |
 
 需要模型实现细节时优先阅读 09–11；01–08 提供各层职责、场景差异与方案选择背景。蓝图中的伪代码用于解释算法，尚未作为可执行训练程序交付。
 

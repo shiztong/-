@@ -1,0 +1,11 @@
+source_id,page,dataset,top_k,model,hit_rate_percent,recall_percent
+sdm-slides,18,Taobao,100,Item-based CF,60.27,3.24
+sdm-slides,18,Taobao,100,DNN,60.88,2.85
+sdm-slides,18,Taobao,100,GRU4REC,65.60,3.66
+sdm-slides,18,Taobao,100,PSDMMAL,70.72,3.86
+sdm-slides,18,Taobao,100,PSDMMAL-N,73.13,3.83
+sdm-slides,18,JD,20,Item-based CF,67.50,9.08
+sdm-slides,18,JD,20,DNN,68.43,8.93
+sdm-slides,18,JD,20,GRU4REC,69.44,9.33
+sdm-slides,18,JD,20,PSDMMAL,73.25,9.47
+sdm-slides,18,JD,20,PSDMMAL-N,74.33,9.68
