@@ -2,6 +2,8 @@
 
 核验日：2026-11-03。本章对用户给定清单逐行纠错，优先使用作者源码、作者演示材料及明确标注的框架复现；不能取得原文数值的地方留空，不补“行业经验提升”。来源固定提交和 SHA-256 见 [model-audit-sources.json](evidence/model-audit-sources.json)。本轮没有训练这些模型或复现线上实验。
 
+本章是事实核验入口。完整结构、梯度与成本研究见 [23 召回深入研究](23-retrieval-code-and-gradients.md)、[24 精排深入研究](24-ranking-code-and-objectives.md)，对照实验与可执行数值检查见 [25](25-falsifiable-experiment-plan.md)。后续章节没有把本章缺失的性能数据补成推测数字。
+
 ## 1. 先给结论：原清单不能直接作为选型表
 
 - **ComiRec 不等于 Attention 蒸馏**：有 DR 和 SA 两种兴趣抽取器，作者公开实现使用 sampled softmax，不以教师蒸馏为其定义。

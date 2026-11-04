@@ -6,6 +6,8 @@
 
 ## 评审入口：先判断能否落地，再选择模型
 
+需要超越模型清单的深入分析，请先读 [23 召回结构与梯度](23-retrieval-code-and-gradients.md)、[24 精排源码与目标](24-ranking-code-and-objectives.md)、[25 可证伪实验计划](25-falsifiable-experiment-plan.md)。这些章节给出具体实现差异、梯度推导、参数/内存计算、源码风险和可执行的解析数值探针，明确区别于尚未完成的深度模型效果实验。
+
 具体模型清单的核验与纠错见 [22 逐模型证据审计](22-model-by-model-evidence-audit.md)：区分 MF/YoutubeDNN/SDM/MIND/ComiRec、SIM/EGES、SE/SSL 与同名 XRec，提供固定版本源码、作者 slides 原表数字、复现限制与未核验项。
 
 需要完整技术发展路线时，从 [17 演进路标树](17-evolution-roadmap-tree.md) 开始，再读 [18 召回](18-retrieval-evolution.md)、[19 粗排与精排](19-ranking-evolution.md)、[20 重排/特征/训练评估](20-decision-feature-evolution.md) 和 [21 分场景推进](21-scene-adoption-roadmap.md)。这些章节区分历史脉络、并行分支、当前成熟能力与未来研究方向。
@@ -38,6 +40,9 @@
 | [20 决策与基础能力路标](20-decision-feature-evolution.md) | 重排、探索、特征、训练服务与评估闭环 |
 | [21 分场景采用路线](21-scene-adoption-roadmap.md) | 列表页/视频流分阶段目标、依赖、交付与退出条件 |
 | [22 逐模型证据审计](22-model-by-model-evidence-audit.md) | 具名模型纠错、源码、作者数据与复现/指标风险 |
+| [23 召回结构与梯度](23-retrieval-code-and-gradients.md) | SDM/MIND/DR/SA 的路由、训练服务差异、参数与检索预算 |
+| [24 精排源码与目标](24-ranking-code-and-objectives.md) | DIN/DCNv2/MMoE/PLE 的梯度、代码变体与任务决策 |
+| [25 可证伪实验计划](25-falsifiable-experiment-plan.md) | 控制变量、评价契约、失败诊断与数值探针 |
 
 需要模型实现细节时优先阅读 09–11；01–08 提供各层职责、场景差异与方案选择背景。蓝图中的伪代码用于解释算法，尚未作为可执行训练程序交付。
 

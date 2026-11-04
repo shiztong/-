@@ -1,0 +1,50 @@
+[
+  {
+    "id": "din-author-demo",
+    "repository": "zhougr1993/DeepInterestNetwork",
+    "commit": "9765f96202f849e59ff260c8b46931a0ddf01d77",
+    "path": "din/model.py",
+    "url": "https://raw.githubusercontent.com/zhougr1993/DeepInterestNetwork/9765f96202f849e59ff260c8b46931a0ddf01d77/din/model.py",
+    "source_type": "author_demo_not_all_paper_variants",
+    "sha256": "f2e199b93fcbd0b73cc57d0d8023e68fa8081299abc4dc0fe0b8c96a1da141a5",
+    "bytes": 11493,
+    "accessed_date": "2026-11-04",
+    "verification": "source inspected; original framework models not executed"
+  },
+  {
+    "id": "tfrs-cross",
+    "repository": "tensorflow/recommenders",
+    "commit": "a8a90aee3f0b470cda96d47e26de99eedb7fc730",
+    "path": "tensorflow_recommenders/layers/feature_interaction/dcn.py",
+    "url": "https://raw.githubusercontent.com/tensorflow/recommenders/a8a90aee3f0b470cda96d47e26de99eedb7fc730/tensorflow_recommenders/layers/feature_interaction/dcn.py",
+    "source_type": "framework_cross_implementation",
+    "sha256": "f7ced8a473750c86c6b3c4d05080cb8d20224ba6f6ee2be793f81c239ec399a5",
+    "bytes": 8458,
+    "accessed_date": "2026-11-04",
+    "verification": "source inspected; original framework models not executed"
+  },
+  {
+    "id": "paddlerec-mmoe",
+    "repository": "PaddlePaddle/PaddleRec",
+    "commit": "656326adf3c4117c11ec0eff5e8f61acd8191c2a",
+    "path": "models/multitask/mmoe/net.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleRec/656326adf3c4117c11ec0eff5e8f61acd8191c2a/models/multitask/mmoe/net.py",
+    "source_type": "framework_example_not_google_production",
+    "sha256": "c7ccd11b61bc54f4ac75d358e15591c086aa5a5eba8af31de947cee9de8f0603",
+    "bytes": 4599,
+    "accessed_date": "2026-11-04",
+    "verification": "source inspected; original framework models not executed"
+  },
+  {
+    "id": "paddlerec-ple",
+    "repository": "PaddlePaddle/PaddleRec",
+    "commit": "656326adf3c4117c11ec0eff5e8f61acd8191c2a",
+    "path": "models/multitask/ple/net.py",
+    "url": "https://raw.githubusercontent.com/PaddlePaddle/PaddleRec/656326adf3c4117c11ec0eff5e8f61acd8191c2a/models/multitask/ple/net.py",
+    "source_type": "framework_example_not_tencent_production",
+    "sha256": "e3d13dc4cd65e083c86ddaae8d21aa40a46d0475a88204457393991f98c4a5e1",
+    "bytes": 9667,
+    "accessed_date": "2026-11-04",
+    "verification": "source inspected; original framework models not executed"
+  }
+]

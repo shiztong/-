@@ -4,6 +4,8 @@
 
 ## 算法设计文档
 
+模型深入研究入口：[召回结构、梯度与检索预算](docs/recommendation/23-retrieval-code-and-gradients.md)、[精排源码、专家路由与目标](docs/recommendation/24-ranking-code-and-objectives.md)、[对照实验与数值检查](docs/recommendation/25-falsifiable-experiment-plan.md)。
+
 完整发展路线见 [技术演进路标树](docs/recommendation/17-evolution-roadmap-tree.md)，包含召回、粗排、精排、重排、特征和训练评估的历史脉络、并行分支及未来方向；落到业务项目见 [分场景演进计划](docs/recommendation/21-scene-adoption-roadmap.md)。
 
 [信息流与短视频推荐：分层模型设计](docs/recommendation/README.md) 分别讲解两种场景的召回、粗排、精排、重排，以及特征、标签、损失函数、训练和服务。深度模型属于设计文档内容，当前教学代码尚未实现。

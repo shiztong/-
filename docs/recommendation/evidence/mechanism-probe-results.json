@@ -1,0 +1,80 @@
+{
+  "warning": "Analytic probes only: not trained models, throughput tests, or business lifts.",
+  "fixed_source_parameter_arithmetic": {
+    "L": 256,
+    "K": 4,
+    "d": 64,
+    "B": 128,
+    "mind_shared_projection_only": 4096,
+    "comirec_dr_projection_only": 4194304,
+    "comirec_sa_attention_and_positions_excluding_bias": 33792,
+    "literal_dr_fp32_broadcast_gib_if_materialized": 2.0
+  },
+  "simplified_attention_order_probe": {
+    "without_position": [
+      0.6816997421945262,
+      0.3183002578054738
+    ],
+    "permuted_without_position": [
+      0.6816997421945262,
+      0.3183002578054738
+    ],
+    "with_position": [
+      0.7969379802553438,
+      0.2030620197446562
+    ],
+    "permuted_with_fixed_positions": [
+      0.5,
+      0.5
+    ]
+  },
+  "mmoe_gate_derivative_of_scalar_output": {
+    "analytic": [
+      0.470007424403189,
+      -0.47000742440318904
+    ],
+    "finite_difference": [
+      0.4700074244246011,
+      -0.47000742436908993
+    ],
+    "max_absolute_error": 3.40991124225809e-11
+  },
+  "inspected_ple_indexing_static_probe": {
+    "task_num": 3,
+    "experts_per_task": 2,
+    "expected": [
+      [
+        0,
+        1
+      ],
+      [
+        2,
+        3
+      ],
+      [
+        4,
+        5
+      ]
+    ],
+    "inspected_expression": [
+      [
+        0,
+        1
+      ],
+      [
+        3,
+        4
+      ],
+      [
+        6,
+        7
+      ]
+    ],
+    "matches": false
+  },
+  "expectation_vs_transform": {
+    "mean_duration_both_examples": 10,
+    "sqrt_utility_0_or_20_equal_probability": 2.23606797749979,
+    "sqrt_utility_constant_10": 3.1622776601683795
+  }
+}
