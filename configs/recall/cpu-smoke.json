@@ -1,0 +1,11 @@
+{
+  "purpose": "Executable synthetic smoke suite, not paper reproduction or business forecast",
+  "data": {"users": 96, "items": 240, "steps": 32, "seed": 17},
+  "models": ["mf", "pooled", "session_gate", "mind_ref", "comirec_sa_ref", "comirec_dr_ref"],
+  "training_seeds": [17, 18, 19],
+  "epochs": 12,
+  "dim": 32,
+  "interests": 4,
+  "max_history": 32,
+  "top_k": 10
+}

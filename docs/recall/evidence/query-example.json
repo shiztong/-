@@ -1,0 +1,33 @@
+{
+  "notice": "Synthetic smoke query, arbitrary history payload, not a quality evaluation.",
+  "model": "session_gate",
+  "training_seed": 17,
+  "user_id": 1,
+  "history": [
+    1,
+    2,
+    3
+  ],
+  "recommendations": [
+    {
+      "item_id": 57,
+      "score": 0.40439024567604065
+    },
+    {
+      "item_id": 171,
+      "score": 0.3947626054286957
+    },
+    {
+      "item_id": 87,
+      "score": 0.3820950388908386
+    },
+    {
+      "item_id": 9,
+      "score": 0.3612792193889618
+    },
+    {
+      "item_id": 184,
+      "score": 0.3487878441810608
+    }
+  ]
+}

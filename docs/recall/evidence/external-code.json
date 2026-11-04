@@ -1,0 +1,32 @@
+[
+  {
+    "id": "sgl-core",
+    "repository": "wujcan/SGL",
+    "commit": "58fe93149ca6fb733639f556343c41f12206ba55",
+    "path": "model/general_recommender/SGL.py",
+    "url": "https://raw.githubusercontent.com/wujcan/SGL/58fe93149ca6fb733639f556343c41f12206ba55/model/general_recommender/SGL.py",
+    "status": "author implementation; not executed",
+    "sha256": "f9737b5b582c7dd9419cad2e099684dea5538c7d852cc70849c241efa67cb3bd",
+    "accessed_date": "2026-11-04"
+  },
+  {
+    "id": "senet-core",
+    "repository": "shenweichen/DeepCTR",
+    "commit": "1b5fe40e158d1ee6af8b1d9df217a5ed5aea9136",
+    "path": "deepctr/layers/interaction.py",
+    "url": "https://raw.githubusercontent.com/shenweichen/DeepCTR/1b5fe40e158d1ee6af8b1d9df217a5ed5aea9136/deepctr/layers/interaction.py",
+    "status": "third-party SENETLayer; not executed",
+    "sha256": "21e58a1751d56c4cb4594a044f1ee20361e11ef105a3ffe01c9f1dc7fd971ee2",
+    "accessed_date": "2026-11-04"
+  },
+  {
+    "id": "eges-candidate",
+    "repository": "wangzhegeek/EGES",
+    "commit": "2b3763c646524f18bcd129c01296f914c5cfdd01",
+    "path": "gpu_process/EGES_module.py",
+    "url": "https://raw.githubusercontent.com/wangzhegeek/EGES/2b3763c646524f18bcd129c01296f914c5cfdd01/gpu_process/EGES_module.py",
+    "status": "third-party candidate; inspected loss does not train the side-feature fusion; not accepted as faithful EGES",
+    "sha256": "d8a3121e111c53e366f6cce66794901fdfab894cf1238097d15cbb34e6b819bf",
+    "accessed_date": "2026-11-04"
+  }
+]
