@@ -1,0 +1,52 @@
+[
+  {
+    "id": "ultra-readme",
+    "repository": "ULTR-Community/ULTRA",
+    "commit": "89ffcaeb1049627d90518c2045dad7a996dfe2aa",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/ULTR-Community/ULTRA/89ffcaeb1049627d90518c2045dad7a996dfe2aa/README.md",
+    "sha256": "a884a7aa9a71d3352613006c0b846917545c886095e0ba0585bdae97f3bf6674",
+    "accessed_date": "2026-11-05",
+    "verification": "source inspected, TensorFlow framework not executed"
+  },
+  {
+    "id": "ultra-ipw",
+    "repository": "ULTR-Community/ULTRA",
+    "commit": "89ffcaeb1049627d90518c2045dad7a996dfe2aa",
+    "path": "ultra/learning_algorithm/ipw_rank.py",
+    "url": "https://raw.githubusercontent.com/ULTR-Community/ULTRA/89ffcaeb1049627d90518c2045dad7a996dfe2aa/ultra/learning_algorithm/ipw_rank.py",
+    "sha256": "5806a2fcd72508032ba53a43c4efde1e4a83c8e2a69b13c8dd9af0bbe0bdd5fd",
+    "accessed_date": "2026-11-05",
+    "verification": "source inspected, TensorFlow framework not executed"
+  },
+  {
+    "id": "ultra-dla",
+    "repository": "ULTR-Community/ULTRA",
+    "commit": "89ffcaeb1049627d90518c2045dad7a996dfe2aa",
+    "path": "ultra/learning_algorithm/dla.py",
+    "url": "https://raw.githubusercontent.com/ULTR-Community/ULTRA/89ffcaeb1049627d90518c2045dad7a996dfe2aa/ultra/learning_algorithm/dla.py",
+    "sha256": "36781895bdff5365e9d28e895b2d74f634cc99f7c148e6b7d94fd2588510250e",
+    "accessed_date": "2026-11-05",
+    "verification": "source inspected, TensorFlow framework not executed"
+  },
+  {
+    "id": "ultra-propensity",
+    "repository": "ULTR-Community/ULTRA",
+    "commit": "89ffcaeb1049627d90518c2045dad7a996dfe2aa",
+    "path": "ultra/utils/propensity_estimator.py",
+    "url": "https://raw.githubusercontent.com/ULTR-Community/ULTRA/89ffcaeb1049627d90518c2045dad7a996dfe2aa/ultra/utils/propensity_estimator.py",
+    "sha256": "bbb4f50d560b20e0fd5bf923b303ef0ac1bfdff2d4983cfe096584671a5f2ac4",
+    "accessed_date": "2026-11-05",
+    "verification": "source inspected, TensorFlow framework not executed"
+  },
+  {
+    "id": "ultra-base",
+    "repository": "ULTR-Community/ULTRA",
+    "commit": "89ffcaeb1049627d90518c2045dad7a996dfe2aa",
+    "path": "ultra/learning_algorithm/base_algorithm.py",
+    "url": "https://raw.githubusercontent.com/ULTR-Community/ULTRA/89ffcaeb1049627d90518c2045dad7a996dfe2aa/ultra/learning_algorithm/base_algorithm.py",
+    "sha256": "c9247106fdcda4e38b45726c0bee32feb1bd6cc28af7875072f4c84133667a7f",
+    "accessed_date": "2026-11-05",
+    "verification": "source inspected, TensorFlow framework not executed"
+  }
+]

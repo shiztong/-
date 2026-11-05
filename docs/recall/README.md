@@ -6,13 +6,15 @@
 
 收益口径：**PUB**=作者公开报告；**RUN**=本仓库合成数据训练实测；**TARGET**=建议立项门槛，待业务确认，不是预测。无真实业务基线时不编造预期线上百分比。
 
+**SDM/序列与消偏专项**：[SDM 会话、时间、多行为、长期记忆与服务优化](SDM_SEQUENCE.md) · [列表页/视频流位置偏差、PBM、IPS 与验收](POSITION_DEBIAS.md)。新增组件已通过测试，未接入既有六模型训练器，旧训练结果仍为原基线。
+
 ## 1. 完整演进树与依赖
 
 使用 **beautiful-mermaid** 绘制的路线图如下。绿色为本地已运行，蓝色为外部源码已核验，橙色为规划，紫色为证据不足；各节点可在 SVG/离线图册中点击查看代码或任务。
 
 ![召回演进路线与落地状态](diagrams/01-evolution.svg)
 
-[四图导航与离线图册](diagrams/README.md) · [当前训练与查询数据流](diagrams/02-current-dataflow.svg) · [生产目标数据流](diagrams/03-production-target.svg) · [单向量与多兴趣](diagrams/04-multi-interest-flow.svg)
+[六图导航与离线图册](diagrams/README.md) · [当前训练与查询数据流](diagrams/02-current-dataflow.svg) · [生产目标数据流](diagrams/03-production-target.svg) · [单向量与多兴趣](diagrams/04-multi-interest-flow.svg) · [SDM 优化](diagrams/05-sdm-sequence.svg) · [位置消偏](diagrams/06-position-debias.svg)
 
 <details>
 <summary>查看文本版演进树</summary>
@@ -132,6 +134,8 @@ C_1=C_0+(1-C_0)q.
 ### R2 → R3：会话意图
 
 输入：相同 item 表征、用户静态特征、请求前历史。比较池化、衰减池化、固定窗口门控、真实 session 门控；分别检查空会话、长短期冲突、反馈迟到。当前 `session_gate` 只实现固定窗口版本，真实 session 与时间特征仍为下一工作包。
+
+细化实现见 [SDM_SEQUENCE.md](SDM_SEQUENCE.md)：`sequence.py` 已增加会话切分、时间/action token、当前会话/历史会话 mask、衰减注意力及空分支门控，接入训练与新效果实验仍待完成。`debias.py` 提供逆检查正例 loss，依赖真实 propensity 日志；它与序列位置编码不是同一机制，见 [POSITION_DEBIAS.md](POSITION_DEBIAS.md)。
 
 ### R2 → R4/R5：多兴趣
 

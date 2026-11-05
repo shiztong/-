@@ -1,0 +1,81 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1049" viewBox="0 0 1100 1049" role="img" aria-labelledby="05-sdm-sequence-title 05-sdm-sequence-desc">
+<title id="05-sdm-sequence-title">SDM 与序列优化 · 从窗口到会话、时间与长期记忆</title><desc id="05-sdm-sequence-desc">绿色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。 历史位置与时间表达兴趣；展示位置影响观察机会。两类位置应分别建模，不能混用。</desc>
+<style>text{font-family:'Noto Sans CJK SC',sans-serif}a:hover .node>rect{stroke-width:2}</style>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">SDM 与序列优化 · 从窗口到会话、时间与长期记忆</text>
+<text x="40" y="65" font-size="13" fill="#475569">绿色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。</text>
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(302.368,112)">
+
+<defs>
+  <marker id="05-sdm-sequence-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="#475569" stroke="#475569" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="05-sdm-sequence-arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="#475569" stroke="#475569" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="BASE" data-to="EVENTS" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="247.63199999999998,93.80000000000001 247.63199999999998,145.8" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="EVENTS" data-to="TOKEN" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="247.63199999999998,199.60000000000002 247.63199999999998,251.60000000000002" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="TOKEN" data-to="SHORT" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="247.63199999999995,305.40000000000003 247.63199999999995,331.40000000000003 141.003,331.40000000000003 141.003,357.40000000000003" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="TOKEN" data-to="LONG" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="247.63199999999995,305.40000000000003 247.63199999999995,331.40000000000003 354.26099999999997,331.40000000000003 354.26099999999997,357.40000000000003" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="SHORT" data-to="GATE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="141.003,411.20000000000005 141.003,437.20000000000005 247.63199999999998,437.20000000000005 247.63199999999998,463.20000000000005" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="LONG" data-to="GATE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="354.26099999999997,411.20000000000005 354.26099999999997,437.20000000000005 247.63199999999998,437.20000000000005 247.63199999999998,463.20000000000005" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="GATE" data-to="TRAIN" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="247.63199999999998,517 247.63199999999998,569" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="TRAIN" data-to="MEMORY" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="247.63199999999998,622.8 247.63199999999998,648.8 135.81599999999997,648.8 135.81599999999997,674.8" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="TRAIN" data-to="CACHE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="247.63199999999998,622.8 247.63199999999998,648.8 359.448,648.8 359.448,674.8" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="MEMORY" data-to="EVAL" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="135.81599999999997,728.5999999999999 135.81599999999997,754.5999999999999 247.632,754.5999999999999 247.632,780.5999999999999" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<polyline class="edge" data-from="CACHE" data-to="EVAL" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="359.448,728.5999999999999 359.448,754.5999999999999 247.632,754.5999999999999 247.632,780.5999999999999" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#05-sdm-sequence-arrowhead)" />
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L112" target="_blank" rel="noopener noreferrer"><g class="node" data-id="BASE" data-label="当前 session_gate · L
+固定窗口 / 既有合成实验" data-shape="rectangle">
+  <rect x="148.48149999999998" y="40" width="198.301" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="247.63199999999998" y="66.9" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="247.63199999999998" dy="-3.9000000000000012">当前 session_gate · L</tspan><tspan x="247.63199999999998" dy="16.900000000000002">固定窗口 / 既有合成实验</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L10" target="_blank" rel="noopener noreferrer"><g class="node" data-id="EVENTS" data-label="会话与时序特征组件 · L
+先切会话 / 后截断 / 拒绝未来" data-shape="rectangle">
+  <rect x="136.99599999999998" y="145.8" width="221.272" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="247.63199999999998" y="172.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="247.63199999999998" dy="-3.9000000000000012">会话与时序特征组件 · L</tspan><tspan x="247.63199999999998" dy="16.900000000000002">先切会话 / 后截断 / 拒绝未来</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="TOKEN" data-label="时间与行为编码 · L
+action / log-age / 时间偏置" data-shape="rectangle">
+  <rect x="149.22249999999997" y="251.60000000000002" width="196.819" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="247.63199999999995" y="278.5" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="247.63199999999995" dy="-3.9000000000000012">时间与行为编码 · L</tspan><tspan x="247.63199999999995" dy="16.900000000000002">action / log-age / 时间偏置</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="SHORT" data-label="当前会话编码组件 · L
+GRU / mask / 相关聚合" data-shape="rectangle">
+  <rect x="50.373999999999995" y="357.40000000000003" width="181.25799999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="141.003" y="384.3" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="141.003" dy="-3.9000000000000012">当前会话编码组件 · L</tspan><tspan x="141.003" dy="16.900000000000002">GRU / mask / 相关聚合</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="LONG" data-label="历史会话聚合组件 · L
+长期 mask / 衰减先验" data-shape="rectangle">
+  <rect x="263.63199999999995" y="357.40000000000003" width="181.25799999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="354.26099999999997" y="384.3" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="354.26099999999997" dy="-3.9000000000000012">历史会话聚合组件 · L</tspan><tspan x="354.26099999999997" dy="16.900000000000002">长期 mask / 衰减先验</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="GATE" data-label="可用性门控组件 · L
+空分支覆盖 / 全空回退" data-shape="rectangle">
+  <rect x="155.89149999999998" y="463.20000000000005" width="183.481" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="247.63199999999998" y="490.1" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="247.63199999999998" dy="-3.9000000000000012">可用性门控组件 · L</tspan><tspan x="247.63199999999998" dy="16.900000000000002">空分支覆盖 / 全空回退</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="TRAIN" data-label="新模型训练接线 · P
+数据协议 / loss / 消融配置" data-shape="rectangle">
+  <rect x="146.629" y="569" width="202.00599999999997" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="247.63199999999998" y="595.9" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="247.63199999999998" dy="-3.9000000000000012">新模型训练接线 · P</tspan><tspan x="247.63199999999998" dy="16.900000000000002">数据协议 / loss / 消融配置</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="MEMORY" data-label="多尺度长期记忆 · P
+会话分层 / 检索 / 多兴趣" data-shape="rectangle">
+  <rect x="40" y="674.8" width="191.63199999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="135.81599999999997" y="701.6999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="135.81599999999997" dy="-3.9000000000000012">多尺度长期记忆 · P</tspan><tspan x="135.81599999999997" dy="16.900000000000002">会话分层 / 检索 / 多兴趣</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="CACHE" data-label="实时状态与缓存 · P
+迟到处理 / 版本 / 等价性" data-shape="rectangle">
+  <rect x="263.632" y="674.8" width="191.63199999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="359.448" y="701.6999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="359.448" dy="-3.9000000000000012">实时状态与缓存 · P</tspan><tspan x="359.448" dy="16.900000000000002">迟到处理 / 版本 / 等价性</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="EVAL" data-label="真实业务验收 · P
+切换切片 / 同预算 / 长期护栏" data-shape="rectangle">
+  <rect x="136.996" y="780.5999999999999" width="221.272" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="247.632" y="807.4999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="247.632" dy="-3.9000000000000012">真实业务验收 · P</tspan><tspan x="247.632" dy="16.900000000000002">切换切片 / 同预算 / 长期护栏</tspan></text>
+</g></a>
+</g>
+<text x="40" y="1017" font-size="12" fill="#475569">历史位置与时间表达兴趣；展示位置影响观察机会。两类位置应分别建模，不能混用。</text>
+<text x="40" y="1037" font-size="11" fill="#64748b">beautiful-mermaid 1.1.3 · 节点可点击查看代码或任务 · 连线表示能力依赖或数据流</text>
+</svg>

@@ -34,7 +34,7 @@ const definitions = [
     subtitle: '从协同与双塔到会话、多兴趣、语义、图协同，再到跨层对齐与前沿研究。',
     note: 'L 是本地参考实现，不是原厂精确复现；E 仅表示外部源码已核验。升级需验证收益和成本。',
     links: { R0: { file: 'recommender/engine.py', symbol: 'Recommender' }, R1: models('MatrixFactorization'),
-      R2: models('PooledTwoTower'), R3: models('SessionGateRetriever'), R4: models('MINDReference'),
+      R2: models('PooledTwoTower'), R3: models('SessionGateRetriever'), R4: models('MINDReference'), SOPT: github + 'docs/recall/SDM_SEQUENCE.md',
       R5A: models('ComiRecSAReference'), R5B: models('ComiRecDRReference'),
       R6: roadmap + '#r6-内容语义升级合同', R8: roadmap + '#r8-跨层协同升级合同',
       R7: 'https://github.com/wujcan/SGL/blob/58fe93149ca6fb733639f556343c41f12206ba55/model/general_recommender/SGL.py',
@@ -64,6 +64,36 @@ const definitions = [
     links: { INPUT: experiment('tensor_batch'), SINGLE: models('PooledTwoTower'), ROUTE: models('RoutingReference'),
       ONE: models('finish'), MANY: models('finish_multi'), POS: models('loss'), READOUT: models('loss'), LOSS: models('loss'),
       CATALOG: models('encode_items'), DOT: models('scores'), TOP: experiment('query'), ANN: roadmap },
+  },
+  {
+    id: '05-sdm-sequence', title: 'SDM 与序列优化 · 从窗口到会话、时间与长期记忆',
+    subtitle: '绿色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。',
+    note: '历史位置与时间表达兴趣；展示位置影响观察机会。两类位置应分别建模，不能混用。',
+    links: {
+      BASE: models('SessionGateRetriever'),
+      EVENTS: { file: 'recommender/retrieval/sequence.py', symbol: 'build_sequence_features' },
+      TOKEN: { file: 'recommender/retrieval/sequence.py', symbol: 'TimeAwareSessionEncoder' },
+      SHORT: { file: 'recommender/retrieval/sequence.py', symbol: 'TimeAwareSessionEncoder' },
+      LONG: { file: 'recommender/retrieval/sequence.py', symbol: 'TimeAwareSessionEncoder' },
+      GATE: { file: 'recommender/retrieval/sequence.py', symbol: 'TimeAwareSessionEncoder' },
+      TRAIN: github + 'docs/recall/SDM_SEQUENCE.md', MEMORY: github + 'docs/recall/SDM_SEQUENCE.md',
+      CACHE: github + 'docs/recall/SDM_SEQUENCE.md', EVAL: github + 'docs/recall/SDM_SEQUENCE.md',
+    },
+  },
+  {
+    id: '06-position-debias', title: '位置消偏 · 从可识别日志到权重与训练验收',
+    subtitle: '本地权重/损失组件与 PBM 模拟已运行；真实 propensity 校准和业务模型接线仍是规划。',
+    note: '模拟结果不是业务收益。逆检查权重不替代 action propensity、采样校正或视频流序列评估。',
+    links: {
+      LOGS: github + 'docs/recall/POSITION_DEBIAS.md', SCENE: github + 'docs/recall/POSITION_DEBIAS.md',
+      CALIB: github + 'docs/recall/POSITION_DEBIAS.md', PROP: github + 'docs/recall/POSITION_DEBIAS.md',
+      ULTRA: 'https://github.com/ULTR-Community/ULTRA/tree/89ffcaeb1049627d90518c2045dad7a996dfe2aa',
+      WEIGHT: { file: 'recommender/retrieval/debias.py', symbol: 'examination_weights' },
+      LOSS: { file: 'recommender/retrieval/debias.py', symbol: 'positive_weighted_softmax' },
+      FIT: github + 'docs/recall/POSITION_DEBIAS.md', EVAL: github + 'docs/recall/POSITION_DEBIAS.md',
+      SIM: { file: 'tools/position_bias_demo.py', symbol: 'simulate' },
+      RESULT: github + 'docs/recall/evidence/position-bias-simulation.json',
+    },
   },
 ];
 
@@ -100,7 +130,7 @@ async function render(definition) {
   assert(!raw.includes('var(') && !raw.includes('@import'), 'Unexpected unresolved CSS/external font');
   raw = raw.replace(/<g class="node" data-id="([^"]+)"([\s\S]*?)<\/g>/g, (all, id) =>
     `<a href="${xml(links[id])}" target="_blank" rel="noopener noreferrer">${all}</a>`);
-  // Namespace marker IDs so all four SVGs can coexist in the offline gallery.
+  // Namespace marker IDs so all SVGs can coexist in the offline gallery.
   raw = raw.replace(/id="arrowhead/g, `id="${definition.id}-arrowhead`)
     .replace(/url\(#arrowhead/g, `url(#${definition.id}-arrowhead`);
   const legend = [['L 本地已运行', '#16845b'], ['E 外部已核验', '#3b6dd8'], ['P 规划待实现', '#c88718'], ['X 证据不足', '#82708e']]
@@ -124,9 +154,9 @@ ${legend}<g transform="translate(${(width - graphWidth) / 2},112)">${raw}</g>
 function gallery(diagrams) {
   const nav = diagrams.map((d, i) => `<button class="tab" data-index="${i}" aria-selected="${i === 0}">${i + 1}. ${xml(d.title.split(' · ')[0])}</button>`).join('');
   const sections = diagrams.map((d, i) => `<section class="panel" ${i ? 'hidden' : ''} data-width="${d.width}" data-height="${d.height}"><h2>${xml(d.title)}</h2><p>${xml(d.subtitle)}</p><div class="downloads"><a href="${d.id}.svg" download>下载 SVG</a><a href="${d.id}.png" download>下载 PNG</a><a href="${d.id}.mmd">Mermaid 源码</a></div><div class="viewport"><div class="canvas">${d.svg}</div></div><p class="note">${xml(d.note)}</p></section>`).join('');
-  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>召回演进与数据流图册</title><style>
+  return `<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>召回演进、序列与消偏图册</title><style>
 *{box-sizing:border-box}body{margin:0;background:#eef2f6;color:#172033;font:15px/1.65 'Noto Sans CJK SC',system-ui,sans-serif}main{max-width:1540px;margin:auto;padding:28px}h1{font-size:30px;margin:0}header p{color:#526074;margin:4px 0 18px}nav,.toolbar,.downloads{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}button,a{font:inherit}button{background:white;border:1px solid #ccd5df;border-radius:8px;padding:8px 14px;cursor:pointer}button[aria-selected=true]{background:#0f513d;color:white;border-color:#0f513d}a{color:#2362b5}section{background:white;padding:20px;border:1px solid #dce2ea;border-radius:14px}section[hidden]{display:none}h2{margin:0;font-size:20px}p{margin:5px 0 12px}section>p,.note{color:#59677b}.viewport{height:68vh;overflow:auto;background:#f8fafc;border:1px solid #e3e8ef;border-radius:10px;overscroll-behavior:contain}.canvas{padding:16px;min-width:100%}.canvas>svg{display:block;max-width:none;height:auto}.downloads a{padding-right:12px}.toolbar{align-items:center}.toolbar input{width:180px}footer{color:#66758a;margin-top:18px}.note{margin-top:14px}button:focus-visible,a:focus-visible{outline:3px solid #579aff;outline-offset:3px}@media(max-width:700px){main{padding:12px}h1{font-size:24px}.viewport{height:62vh}section{padding:12px}}
-</style></head><body><main><header><h1>召回演进与数据流图册</h1><p>四张图对应能力路线、当前实现、生产目标，以及训练与检索差异。L / E / P / X 明确区分落地状态。</p><a href="../README.md">召回总路标与收益证据</a> · <a href="../IMPLEMENTATION.md">训练、导出与查询手册</a></header><nav aria-label="选择图表">${nav}</nav><div class="toolbar"><button id="fit">适应宽度</button><button id="actual">原始尺寸</button><label>缩放 <input id="zoom" type="range" min="25" max="200" value="100"></label><output id="scale">100%</output><span>可滚动查看，点击节点跳转代码</span></div>${sections}<footer>离线文件，无 CDN、远程字体或预览服务器依赖。代码链接需要网络；PNG 包含中文字体渲染结果。源码与生成器保存在仓库。</footer></main><script>
+</style></head><body><main><header><h1>召回演进、序列与消偏图册</h1><p>六张图覆盖能力路线、当前实现、生产目标、训练与检索、SDM 优化与位置消偏。L / E / P / X 明确区分落地状态。</p><a href="../README.md">召回总路标与收益证据</a> · <a href="../IMPLEMENTATION.md">训练、导出与查询手册</a></header><nav aria-label="选择图表">${nav}</nav><div class="toolbar"><button id="fit">适应宽度</button><button id="actual">原始尺寸</button><label>缩放 <input id="zoom" type="range" min="25" max="200" value="100"></label><output id="scale">100%</output><span>可滚动查看，点击节点跳转代码</span></div>${sections}<footer>离线文件，无 CDN、远程字体或预览服务器依赖。代码链接需要网络；PNG 包含中文字体渲染结果。源码与生成器保存在仓库。</footer></main><script>
 const panels=[...document.querySelectorAll('.panel')],tabs=[...document.querySelectorAll('.tab')];let active=0;
 const zoom=document.querySelector('#zoom'),label=document.querySelector('#scale');
 function apply(value){const panel=panels[active];zoom.value=value;label.value=Math.round(value)+'%';panel.querySelector('.canvas>svg').style.width=(Number(panel.dataset.width)*value/100)+'px';}

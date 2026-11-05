@@ -1,0 +1,26 @@
+graph TD
+  BASE["当前 session_gate · L<br/>固定窗口 / 既有合成实验"]
+  EVENTS["会话与时序特征组件 · L<br/>先切会话 / 后截断 / 拒绝未来"]
+  TOKEN["时间与行为编码 · L<br/>action / log-age / 时间偏置"]
+  SHORT["当前会话编码组件 · L<br/>GRU / mask / 相关聚合"]
+  LONG["历史会话聚合组件 · L<br/>长期 mask / 衰减先验"]
+  GATE["可用性门控组件 · L<br/>空分支覆盖 / 全空回退"]
+  TRAIN["新模型训练接线 · P<br/>数据协议 / loss / 消融配置"]
+  MEMORY["多尺度长期记忆 · P<br/>会话分层 / 检索 / 多兴趣"]
+  CACHE["实时状态与缓存 · P<br/>迟到处理 / 版本 / 等价性"]
+  EVAL["真实业务验收 · P<br/>切换切片 / 同预算 / 长期护栏"]
+  BASE -.-> EVENTS
+  EVENTS --> TOKEN
+  TOKEN --> SHORT
+  TOKEN --> LONG
+  SHORT --> GATE
+  LONG --> GATE
+  GATE -.-> TRAIN
+  TRAIN -.-> MEMORY
+  TRAIN -.-> CACHE
+  MEMORY -.-> EVAL
+  CACHE -.-> EVAL
+  classDef local fill:#e7f5ee,stroke:#16845b,color:#145239
+  classDef planned fill:#fff3dc,stroke:#c88718,color:#785014
+  class BASE,EVENTS,TOKEN,SHORT,LONG,GATE local
+  class TRAIN,MEMORY,CACHE,EVAL planned

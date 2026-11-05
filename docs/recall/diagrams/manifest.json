@@ -21,17 +21,18 @@
       "statusCounts": {
         "L": 7,
         "E": 2,
-        "P": 5,
+        "P": 6,
         "X": 1
       },
-      "sourceSha256": "9c8c50115d4519038a7fad1342fc526ab9990afdb0eb42786efdd826b2e7963b",
-      "svgSha256": "d5fecbe3c1d5df2f34576fe1267da19699c5bddab1c34773659109da58a85524",
-      "pngSha256": "050c6399a7742c4c56deb2a1d9e4cada0952ffc586a540385cfe42ea5fd093ca",
+      "sourceSha256": "72aa6c5b20e9dd8294fdbb9558f9d91038c81e2a1119f23ef5792db7f1c317c3",
+      "svgSha256": "7be0b466356f34cb9dc4fb597ca80cfa12e19a62141e0c416c1d2917b0c9e752",
+      "pngSha256": "ac5691f213235f8d2dc56249f8ca1cd24764526703d6e5711b24431fa7757eae",
       "links": {
         "R0": "https://github.com/shiztong/-/blob/master/recommender/engine.py#L7",
         "R1": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L95",
         "R2": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L100",
         "R3": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L112",
+        "SOPT": "https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md",
         "R4": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L216",
         "R5A": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L162",
         "R5B": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L221",
@@ -139,6 +140,61 @@
         "DOT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L82",
         "TOP": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L226",
         "ANN": "https://github.com/shiztong/-/blob/master/docs/recall/README.md"
+      }
+    },
+    {
+      "id": "05-sdm-sequence",
+      "title": "SDM 与序列优化 · 从窗口到会话、时间与长期记忆",
+      "width": 1100,
+      "height": 1049,
+      "statusCounts": {
+        "L": 6,
+        "E": 0,
+        "P": 4,
+        "X": 0
+      },
+      "sourceSha256": "6c34798e57c98e308c4230136e72c79b86e9ec5afe8575e02a9da71ebcd780a3",
+      "svgSha256": "ed507cec008a70a1a907886d9d4e6d7cb65c9c2141569e9826aaec713a32c4d9",
+      "pngSha256": "3c73af2387800323b567b5b537a34e0812eee7be246bfc2ca124397f94c25211",
+      "links": {
+        "BASE": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L112",
+        "EVENTS": "https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L10",
+        "TOKEN": "https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43",
+        "SHORT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43",
+        "LONG": "https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43",
+        "GATE": "https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43",
+        "TRAIN": "https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md",
+        "MEMORY": "https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md",
+        "CACHE": "https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md",
+        "EVAL": "https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md"
+      }
+    },
+    {
+      "id": "06-position-debias",
+      "title": "位置消偏 · 从可识别日志到权重与训练验收",
+      "width": 1100,
+      "height": 1049,
+      "statusCounts": {
+        "L": 4,
+        "E": 1,
+        "P": 6,
+        "X": 0
+      },
+      "sourceSha256": "ffaa18c47f6c47ca1e3c587a7acc431f7c5cc5159df30e8b842f1988c3d3f1c0",
+      "svgSha256": "7f906800fbd40c34742f21807b546bf34fbf22d64d50aa117bb77a6d103cd5dd",
+      "pngSha256": "c42bfd822a77e72d5c86c60991ee6347db0b097beb98c3d9fe0e83a1d47a2fa4",
+      "links": {
+        "LOGS": "https://github.com/shiztong/-/blob/master/docs/recall/POSITION_DEBIAS.md",
+        "SCENE": "https://github.com/shiztong/-/blob/master/docs/recall/POSITION_DEBIAS.md",
+        "CALIB": "https://github.com/shiztong/-/blob/master/docs/recall/POSITION_DEBIAS.md",
+        "ULTRA": "https://github.com/ULTR-Community/ULTRA/tree/89ffcaeb1049627d90518c2045dad7a996dfe2aa",
+        "PROP": "https://github.com/shiztong/-/blob/master/docs/recall/POSITION_DEBIAS.md",
+        "WEIGHT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/debias.py#L6",
+        "LOSS": "https://github.com/shiztong/-/blob/master/recommender/retrieval/debias.py#L25",
+        "FIT": "https://github.com/shiztong/-/blob/master/docs/recall/POSITION_DEBIAS.md",
+        "EVAL": "https://github.com/shiztong/-/blob/master/docs/recall/POSITION_DEBIAS.md",
+        "SIM": "https://github.com/shiztong/-/blob/master/tools/position_bias_demo.py#L10",
+        "RESULT": "https://github.com/shiztong/-/blob/master/docs/recall/evidence/position-bias-simulation.json"
       }
     }
   ]

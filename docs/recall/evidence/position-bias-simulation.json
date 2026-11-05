@@ -1,0 +1,43 @@
+{
+  "warning": "Deterministic PBM simulation, not a real UI/propensity measurement.",
+  "seed": 17,
+  "calibration_impressions": 200000,
+  "evaluation_impressions": 200000,
+  "assumptions": "C=E*R, E independent of R given position; randomized calibration; e(first)=1 known in simulator",
+  "true_examination": [
+    1.0,
+    0.25
+  ],
+  "calibrated_relative_examination": [
+    1.0,
+    0.24822993199964738
+  ],
+  "results": {
+    "A": {
+      "latent_relevance": 0.8,
+      "impressions": 100066,
+      "observed_ctr": 0.2583694761457438,
+      "known_propensity_ht": 0.7924969520116723,
+      "calibrated_propensity_ht": 0.797575264931831,
+      "positive_weight_diagnostics": {
+        "count": 25854,
+        "sum": 79810.16646067207,
+        "max": 4.0285230388792135,
+        "effective_sample_size": 21434.13083607757
+      }
+    },
+    "B": {
+      "latent_relevance": 0.4,
+      "impressions": 99934,
+      "observed_ctr": 0.37059459243100445,
+      "known_propensity_ht": 0.3998939299937959,
+      "calibrated_propensity_ht": 0.40017249870860805,
+      "positive_weight_diagnostics": {
+        "count": 37035,
+        "sum": 39990.838485946115,
+        "max": 4.0285230388792135,
+        "effective_sample_size": 30815.285672329388
+      }
+    }
+  }
+}

@@ -4,7 +4,9 @@
 
 ## 召回实操入口
 
-[召回路线与数据流图册](docs/recall/diagrams/README.md) 使用 beautiful-mermaid 生成四张 SVG/PNG，提供离线 HTML 缩放浏览和节点源码跳转，明确区分当前实现与生产目标。
+[召回路线与数据流图册](docs/recall/diagrams/README.md) 使用 beautiful-mermaid 生成六张 SVG/PNG，提供离线 HTML 缩放浏览和节点源码跳转，明确区分当前实现与生产目标。
+
+深入专项：[SDM 与序列优化](docs/recall/SDM_SEQUENCE.md) 讲解会话、时间、多行为、长期记忆和缓存；[位置消偏](docs/recall/POSITION_DEBIAS.md) 区分列表展示、视频流到达、PBM/IPS 与策略评估，并提供可执行权重/loss 组件和独立模拟。
 
 [召回完整路标、预期收益与核心代码](docs/recall/README.md) 将每条演进路径映射到具体源码、运行状态、收益依据与验收条件。
 

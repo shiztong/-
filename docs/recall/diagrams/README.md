@@ -2,9 +2,9 @@
 
 由 **beautiful-mermaid 1.1.3** 渲染 Mermaid 源码为 SVG，再由 **@resvg/resvg-js 2.6.2** 导出 PNG。Node 依赖与锁文件保存在 [tools/diagrams](../../../tools/diagrams/package.json)，独立于 Python 推荐服务。
 
-[离线交互图册 index.html](index.html) 支持四图切换、缩放、适应宽度、下载 SVG/PNG，以及点击节点跳转源码或建设任务。GitHub 不执行仓库中的 HTML；下载此目录后本地打开 `index.html`，或直接浏览以下 SVG/PNG。无需启动本地服务器或加载 CDN。
+[离线交互图册 index.html](index.html) 支持六图切换、缩放、适应宽度、下载 SVG/PNG，以及点击节点跳转源码或建设任务。GitHub 不执行仓库中的 HTML；下载此目录后本地打开 `index.html`，或直接浏览以下 SVG/PNG。无需启动本地服务器或加载 CDN。
 
-## 四张图
+## 六张图
 
 | 图 | 说明 | SVG | PNG | 可编辑源码 |
 |---|---|---|---|---|
@@ -12,6 +12,8 @@
 | 02 当前代码数据流 | 数据校验、时间留出、六模型训练、验证选模、向量导出、加载校验、精确查询与测试评价 | [矢量图](02-current-dataflow.svg) | [高清图](02-current-dataflow.png) | [Mermaid](02-current-dataflow.mmd) |
 | 03 生产目标数据流 | 日志与实时状态、样本/训练、内容编码、ANN、分发和实验反馈；全图为目标架构 | [矢量图](03-production-target.svg) | [高清图](03-production-target.png) | [Mermaid](03-production-target.mmd) |
 | 04 单向量/多兴趣 | 用户表征、训练 hard readout 与 loss、检索时对有效兴趣取 max、未来 ANN 分头合并 | [矢量图](04-multi-interest-flow.svg) | [高清图](04-multi-interest-flow.png) | [Mermaid](04-multi-interest-flow.mmd) |
+| 05 SDM/序列优化 | 真实会话、时间与行为编码、长期分支、可用性门控、后续训练与服务 | [矢量图](05-sdm-sequence.svg) | [高清图](05-sdm-sequence.png) | [Mermaid](05-sdm-sequence.mmd) |
+| 06 位置消偏 | 观察机制、识别与校准、权重/loss 组件、独立模拟与业务验收 | [矢量图](06-position-debias.svg) | [高清图](06-position-debias.png) | [Mermaid](06-position-debias.mmd) |
 
 ## 状态图例与阅读边界
 
@@ -34,7 +36,7 @@ npm --prefix tools/diagrams run render
 npm --prefix tools/diagrams run check
 ```
 
-当前环境已安装依赖并生成四组 SVG/PNG。修改 `.mmd` 后运行 `render`；标题、说明及节点代码链接在 [render.mjs](../../../tools/diagrams/render.mjs) 中维护。生成器解析节点状态、检查代码符号、计算实际源码行号，不手工硬编码类定义的行数。
+当前环境已安装依赖并生成六组 SVG/PNG。修改 `.mmd` 后运行 `render`；标题、说明及节点代码链接在 [render.mjs](../../../tools/diagrams/render.mjs) 中维护。生成器解析节点状态、检查代码符号、计算实际源码行号，不手工硬编码类定义的行数。
 
 中文导出使用 Noto Sans CJK SC。默认读取系统的 `NotoSansCJK-Regular.ttc`、`NotoSansCJK-Bold.ttc`；无对应字体时应先安装字体，也可用 `RECALL_DIAGRAM_FONTS` 指定字体文件列表（按操作系统的路径分隔符分开）。当前字体文件哈希记录在 [manifest.json](manifest.json)。跨平台字体版本变化会改变 PNG，需要重新生成再校验。
 
