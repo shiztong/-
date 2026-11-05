@@ -4,6 +4,8 @@
 
 ## 召回实操入口
 
+[召回路线与数据流图册](docs/recall/diagrams/README.md) 使用 beautiful-mermaid 生成四张 SVG/PNG，提供离线 HTML 缩放浏览和节点源码跳转，明确区分当前实现与生产目标。
+
 [召回完整路标、预期收益与核心代码](docs/recall/README.md) 将每条演进路径映射到具体源码、运行状态、收益依据与验收条件。
 
 新增独立的可选 PyTorch 召回实验包，已实现并实际训练 MF、池化双塔、SDM 风格长短期融合、MIND 及 ComiRec-SA/DR 参考模型。使用 [实现手册](docs/recall/IMPLEMENTATION.md) 运行训练、评估、索引导出和查询；[三种子运行报告](docs/recall/BENCHMARK.md) 保留合成数据实测结果。该包需要单独安装依赖，不改变标准库 HTTP 服务的运行依赖，也不等同于原论文复现或生产服务。

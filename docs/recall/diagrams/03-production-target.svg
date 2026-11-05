@@ -1,0 +1,142 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="2139" height="650" viewBox="0 0 2139 650" role="img" aria-labelledby="03-production-target-title 03-production-target-desc">
+<title id="03-production-target-title">生产目标 · 召回训练、服务与反馈闭环</title><desc id="03-production-target-desc">目标架构，全图 P：日志回流、在线状态、语义编码、ANN、版本包与分发实验尚未贯通。 该图是后续建设合同，不能视为已部署系统；实线表示目标数据流，不表示节点已实现。</desc>
+<style>text{font-family:'Noto Sans CJK SC',sans-serif}a:hover .node>rect{stroke-width:2}</style>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">生产目标 · 召回训练、服务与反馈闭环</text>
+<text x="40" y="65" font-size="13" fill="#475569">目标架构，全图 P：日志回流、在线状态、语义编码、ANN、版本包与分发实验尚未贯通。</text>
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(0.3364999999998872,112)">
+
+<defs>
+  <marker id="03-production-target-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="#475569" stroke="#475569" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="03-production-target-arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="#475569" stroke="#475569" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="LOGS" data-to="STREAM" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="391.10400000000004,75.86666666666667 431.10400000000004,75.86666666666667 431.10400000000004,101.33333333333334 443.10400000000004,101.33333333333334" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="STREAM" data-to="STATE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="619.916,101.33333333333334 640.9537500000001,101.33333333333334 640.9537500000001,92.3666666666667 661.9915000000001,92.3666666666667" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="STREAM" data-to="SAMPLES" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="619.916,101.33333333333334 640.9537500000001,101.33333333333334 640.9537500000001,178.16666666666666 661.9915000000001,178.16666666666666" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="SAMPLES" data-to="FIT" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="661.9915000000001,178.16666666666666 640.067,178.16666666666666 640.067,173.89166666666665 222.438,173.89166666666665 222.438,307.42833333333334 208.438,307.42833333333334" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="CONTENT" data-to="SAMPLES" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="时点可用属性" points="208.438,195.89166666666665 640.067,195.89166666666665 640.067,191.61666666666665 661.9915000000001,191.61666666666665" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="CONTENT" data-to="ENCODE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="208.438,204.85833333333332 233.438,204.85833333333332 233.438,373.255 258.438,373.255" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="FIT" data-to="ENCODE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="208.438,323.56833333333327 233.438,323.56833333333327 233.438,373.255 258.438,373.255" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="ENCODE" data-to="ANN" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="441.919,373.255 493.919,373.255" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="REQUEST" data-to="USER" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="858.0695000000001,287.45500000000004 860.7280000000001,287.45500000000004 860.7280000000001,228.8633333333333 872.7280000000001,228.8633333333333" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="STATE" data-to="USER" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="838.8035000000001,92.36666666666667 860.7280000000001,92.36666666666667 860.7280000000001,201.96333333333328 872.7280000000001,201.96333333333328" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="FIT" data-to="USER" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="模型发布" points="208.438,318.18833333333333 234.438,318.18833333333333 234.438,249.555 848.7280000000001,249.555 848.7280000000001,215.4133333333333 872.7280000000001,215.4133333333333" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="USER" data-to="RETRIEVE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1056.209,215.4133333333333 1068.209,215.4133333333333 1068.209,276.06 1080.209,276.06" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="ANN" data-to="RETRIEVE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="674.4359999999999,373.255 700.4359999999999,373.255 700.4359999999999,289.51 1080.209,289.51" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="RETRIEVE" data-to="FUSE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1265.172,289.51 1317.172,289.51" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="FUSE" data-to="DOWN" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1464.344,289.51 1516.344,289.51" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="DOWN" data-to="SERVE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1682.7820000000002,289.51 1694.7820000000002,289.51 1694.7820000000002,177.61333333333332 1706.7820000000002,177.61333333333332" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="SERVE" data-to="LOGS" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="可归因事件" points="1706.7820000000002,159.67999999999998 1694.7820000000002,159.67999999999998 1694.7820000000002,54.4666666666667 1601.7320000000004,54.4666666666667 1601.7320000000004,57.93333333333334 391.10400000000004,57.93333333333334" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="SERVE" data-to="EXP" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="1875.4430000000002,168.64666666666665 1915.4430000000002,168.64666666666665 1915.4430000000002,220.8 1927.4430000000002,220.8" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="FIT" data-to="BUNDLE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="208.438,339.7083333333333 222.438,339.7083333333333 222.438,415.9466666666667 726.4359999999999,415.94666666666666" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="ANN" data-to="BUNDLE" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="674.4359999999999,373.255 700.4359999999999,373.255 700.4359999999999,406.98 726.4359999999999,406.98" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="BUNDLE" data-to="RETRIEVE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="兼容发布与回滚" points="911.3989999999999,398.0133333333333 923.399,398.0133333333333 923.399,289.51 1080.209,289.51" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#03-production-target-arrowhead)" />
+<polyline class="edge" data-from="BUNDLE" data-to="EXP" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="版本观测" points="911.3989999999999,415.94666666666666 1915.4430000000002,415.9466666666667 1915.4430000000002,238.73333333333335 1927.4430000000002,238.73333333333335" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#03-production-target-arrowhead)" />
+<g class="edge-label" data-from="CONTENT" data-to="SAMPLES" data-label="时点可用属性">
+  <rect x="515.137" y="179.89166666666665" width="88.93" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
+  <text x="559.602" y="195.04166666666666" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">时点可用属性</text>
+</g>
+<g class="edge-label" data-from="FIT" data-to="USER" data-label="模型发布">
+  <rect x="539.48" y="233.555" width="65.17" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
+  <text x="572.065" y="248.705" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">模型发布</text>
+</g>
+<g class="edge-label" data-from="SERVE" data-to="LOGS" data-label="可归因事件">
+  <rect x="1609.7320000000002" y="38.4666666666667" width="77.05000000000001" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
+  <text x="1648.2570000000003" y="53.616666666666696" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">可归因事件</text>
+</g>
+<g class="edge-label" data-from="BUNDLE" data-to="RETRIEVE" data-label="兼容发布与回滚">
+  <rect x="931.399" y="273.51" width="100.81000000000002" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
+  <text x="981.804" y="288.65999999999997" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">兼容发布与回滚</text>
+</g>
+<g class="edge-label" data-from="BUNDLE" data-to="EXP" data-label="版本观测">
+  <rect x="1842.2730000000001" y="399.9466666666667" width="65.17" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
+  <text x="1874.8580000000002" y="415.0966666666667" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">版本观测</text>
+</g>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="LOGS" data-label="行为与曝光日志 · P
+可视 / 起播 / 反馈" data-shape="rectangle">
+  <rect x="224.66600000000005" y="40" width="166.438" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="307.88500000000005" y="66.9" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="307.88500000000005" dy="-3.9000000000000012">行为与曝光日志 · P</tspan><tspan x="307.88500000000005" dy="16.900000000000002">可视 / 起播 / 反馈</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="STREAM" data-label="事件处理 · P
+去重 / 迟到 / 成熟窗口" data-shape="rectangle">
+  <rect x="443.10400000000004" y="74.43333333333334" width="176.81199999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="531.51" y="101.33333333333334" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="531.51" dy="-3.9000000000000012">事件处理 · P</tspan><tspan x="531.51" dy="16.900000000000002">去重 / 迟到 / 成熟窗口</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="STATE" data-label="在线用户状态 · P
+会话 / 长短期 / 负反馈" data-shape="rectangle">
+  <rect x="661.9915000000001" y="65.4666666666667" width="176.81199999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="750.3975" y="92.3666666666667" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="750.3975" dy="-3.9000000000000012">在线用户状态 · P</tspan><tspan x="750.3975" dy="16.900000000000002">会话 / 长短期 / 负反馈</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="SAMPLES" data-label="时点正确样本 · P
+特征版本 / 标签窗口" data-shape="rectangle">
+  <rect x="661.9915000000001" y="151.26666666666665" width="168.661" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="746.3220000000001" y="178.16666666666666" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="746.3220000000001" dy="-3.9000000000000012">时点正确样本 · P</tspan><tspan x="746.3220000000001" dy="16.900000000000002">特征版本 / 标签窗口</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="FIT" data-label="训练与蒸馏 · P
+采样 loss / 共享底座" data-shape="rectangle">
+  <rect x="42" y="296.6683333333333" width="166.438" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="125.219" y="323.56833333333327" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="125.219" dy="-3.9000000000000012">训练与蒸馏 · P</tspan><tspan x="125.219" dy="16.900000000000002">采样 loss / 共享底座</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="CONTENT" data-label="内容准入与理解 · P
+作者 / 语义 / 多模态" data-shape="rectangle">
+  <rect x="42" y="177.95833333333331" width="166.438" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="125.219" y="204.85833333333332" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="125.219" dy="-3.9000000000000012">内容准入与理解 · P</tspan><tspan x="125.219" dy="16.900000000000002">作者 / 语义 / 多模态</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="ENCODE" data-label="内容编码与增量 · P
+编码器版本 / 过期移除" data-shape="rectangle">
+  <rect x="258.438" y="346.355" width="183.481" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="350.1785" y="373.255" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="350.1785" dy="-3.9000000000000012">内容编码与增量 · P</tspan><tspan x="350.1785" dy="16.900000000000002">编码器版本 / 过期移除</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="ANN" data-label="ANN 与多通道索引 · P
+新旧索引 / 原子切换" data-shape="rectangle">
+  <rect x="493.919" y="346.355" width="180.51699999999997" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="584.1775" y="373.255" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="584.1775" dy="-3.9000000000000012">ANN 与多通道索引 · P</tspan><tspan x="584.1775" dy="16.900000000000002">新旧索引 / 原子切换</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="REQUEST" data-label="列表页或视频流请求 · P
+场景 / 入口 / deadline" data-shape="rectangle">
+  <rect x="661.9915000000001" y="260.555" width="196.078" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="760.0305000000001" y="287.455" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="760.0305000000001" dy="-3.9000000000000012">列表页或视频流请求 · P</tspan><tspan x="760.0305000000001" dy="16.900000000000002">场景 / 入口 / deadline</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="USER" data-label="用户塔与兴趣路由 · P
+当前状态 / 有效兴趣数" data-shape="rectangle">
+  <rect x="872.7280000000001" y="188.5133333333333" width="183.481" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="964.4685000000001" y="215.4133333333333" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="964.4685000000001" dy="-3.9000000000000012">用户塔与兴趣路由 · P</tspan><tspan x="964.4685000000001" dy="16.900000000000002">当前状态 / 有效兴趣数</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="RETRIEVE" data-label="并行召回 · P
+协同 / 向量 / 关注 / 探索" data-shape="rectangle">
+  <rect x="1080.209" y="262.61" width="184.96300000000002" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="1172.6905000000002" y="289.51" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="1172.6905000000002" dy="-3.9000000000000012">并行召回 · P</tspan><tspan x="1172.6905000000002" dy="16.900000000000002">协同 / 向量 / 关注 / 探索</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="FUSE" data-label="候选融合 · P
+来源 / 去重 / 配额" data-shape="rectangle">
+  <rect x="1317.172" y="262.61" width="147.17200000000003" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="1390.758" y="289.51" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="1390.758" dy="-3.9000000000000012">候选融合 · P</tspan><tspan x="1390.758" dy="16.900000000000002">来源 / 去重 / 配额</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="DOWN" data-label="粗排到最终分发 · P
+精排 / 重排 / 强准入" data-shape="rectangle">
+  <rect x="1516.344" y="262.61" width="166.438" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="1599.563" y="289.51" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="1599.563" dy="-3.9000000000000012">粗排到最终分发 · P</tspan><tspan x="1599.563" dy="16.900000000000002">精排 / 重排 / 强准入</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="SERVE" data-label="真实展示与消费 · P
+反馈归因 / 随机分桶" data-shape="rectangle">
+  <rect x="1706.7820000000002" y="141.74666666666664" width="168.661" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="1791.1125000000002" y="168.64666666666665" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="1791.1125000000002" dy="-3.9000000000000012">真实展示与消费 · P</tspan><tspan x="1791.1125000000002" dy="16.900000000000002">反馈归因 / 随机分桶</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="EXP" data-label="实验与监控 · P
+长期收益 / 成本 / P99" data-shape="rectangle">
+  <rect x="1927.4430000000002" y="202.86666666666667" width="170.884" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="2012.8850000000002" y="229.76666666666668" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="2012.8850000000002" dy="-3.9000000000000012">实验与监控 · P</tspan><tspan x="2012.8850000000002" dy="16.900000000000002">长期收益 / 成本 / P99</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="BUNDLE" data-label="统一版本包 · P
+特征 / 模型 / 索引 / 校准" data-shape="rectangle">
+  <rect x="726.4359999999999" y="380.08000000000004" width="184.96300000000002" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="818.9174999999999" y="406.98" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="818.9174999999999" dy="-3.9000000000000012">统一版本包 · P</tspan><tspan x="818.9174999999999" dy="16.900000000000002">特征 / 模型 / 索引 / 校准</tspan></text>
+</g></a>
+</g>
+<text x="40" y="618" font-size="12" fill="#475569">该图是后续建设合同，不能视为已部署系统；实线表示目标数据流，不表示节点已实现。</text>
+<text x="40" y="638" font-size="11" fill="#64748b">beautiful-mermaid 1.1.3 · 节点可点击查看代码或任务 · 连线表示能力依赖或数据流</text>
+</svg>

@@ -1,0 +1,43 @@
+graph TD
+  R0["R0 协同与热门回退 · L<br/>UserCF / 热门补齐"]
+  R1["R1 ID-MF · L<br/>单向量协同基线"]
+  R2["R2 池化双塔 · L<br/>属性与历史 → 检索向量"]
+  R3["R3 SDM 风格 · L<br/>长短期融合 / 单向量"]
+  R4["R4 MIND 参考 · L<br/>路由 / 有效兴趣数"]
+  R5A["R5a ComiRec-SA · L<br/>多组注意力池化"]
+  R5B["R5b ComiRec-DR · L<br/>位置与兴趣相关路由"]
+  R6["R6 内容语义 · P<br/>多模态 / 新内容冷启动"]
+  R7["R7a 图协同与 SSL · E<br/>SGL 作者代码已核验"]
+  EG["R7b EGES 候选 · X<br/>侧信息训练链待修正"]
+  FUSE["多路召回与融合 · P<br/>去重 / 配额 / 准入"]
+  R8["R8 跨层目标对齐 · P<br/>多目标 / 教师蒸馏"]
+  R9["R9 HSTU 长序列 · E<br/>官方实现 / 本地未复现"]
+  R10["R10 生成式增量召回 · P<br/>语义 ID / 约束解码"]
+  GATE["上线门槛 · P<br/>同预算增益 / 成本 / A-B"]
+  R0 --> R1
+  R1 --> R2
+  R2 -->|意图变化| R3
+  R2 -->|兴趣覆盖| R4
+  R4 --> R5A
+  R4 --> R5B
+  R2 -.->|冷启动分支| R6
+  R2 -.->|高阶协同分支| R7
+  R7 -.-> EG
+  R3 -.-> FUSE
+  R5A -.-> FUSE
+  R5B -.-> FUSE
+  R6 -.-> FUSE
+  R7 -.-> FUSE
+  FUSE -.-> R8
+  R8 -.->|长序列价值已验证| R9
+  R8 -.->|增量候选实验| R10
+  R9 -.-> GATE
+  R10 -.-> GATE
+  classDef local fill:#e7f5ee,stroke:#16845b,color:#145239
+  classDef external fill:#e9f0ff,stroke:#3b6dd8,color:#234681
+  classDef planned fill:#fff3dc,stroke:#c88718,color:#785014
+  classDef blocked fill:#f1edf4,stroke:#82708e,color:#574561
+  class R0,R1,R2,R3,R4,R5A,R5B local
+  class R7,R9 external
+  class R6,FUSE,R8,R10,GATE planned
+  class EG blocked

@@ -8,6 +8,15 @@
 
 ## 1. 完整演进树与依赖
 
+使用 **beautiful-mermaid** 绘制的路线图如下。绿色为本地已运行，蓝色为外部源码已核验，橙色为规划，紫色为证据不足；各节点可在 SVG/离线图册中点击查看代码或任务。
+
+![召回演进路线与落地状态](diagrams/01-evolution.svg)
+
+[四图导航与离线图册](diagrams/README.md) · [当前训练与查询数据流](diagrams/02-current-dataflow.svg) · [生产目标数据流](diagrams/03-production-target.svg) · [单向量与多兴趣](diagrams/04-multi-interest-flow.svg)
+
+<details>
+<summary>查看文本版演进树</summary>
+
 ```text
 R0 热门/关注/协同：建立最低可用覆盖与回退
  └─ R1 ID-MF：校验可学习的协同信号
@@ -26,6 +35,8 @@ R0 热门/关注/协同：建立最低可用覆盖与回退
 横向增强：SE 字段加权；具体 SSL 目标；实时状态与增量索引
 持续约束：准入、已看过滤、版本一致、同预算评价、回滚
 ```
+
+</details>
 
 树表示可选升级和依赖，不是公司必须逐个替换的年代顺序。SDM 与多兴趣解决不同问题，可以并行；图、语义与协同可以长期作为不同通道共存。
 

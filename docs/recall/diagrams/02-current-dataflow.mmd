@@ -1,0 +1,43 @@
+graph TD
+  DATA["事件与内容目录 · L<br/>当前演示：合成 JSON"]
+  CHECK["数据校验 · L<br/>ID / 时间 / 目录上限"]
+  SPLIT["全局时间约束 · L<br/>训练早于验证与测试"]
+  TRAIN["历史前缀训练样本 · L<br/>目标前截断 / 右侧 padding"]
+  VALID["验证留出 · L<br/>按 Recall 选择 epoch"]
+  TEST["测试留出 · L<br/>不参与训练和选模"]
+  MODEL["六模型训练 · L<br/>全库 CE / 多兴趣 hard readout"]
+  CKPT["model.pt · L<br/>参数 / 配置 / 数据 hash"]
+  VECTORS["内容向量导出 · L<br/>ItemTower / L2 normalize"]
+  INDEX["index.pt · L<br/>精确向量表 / checkpoint hash"]
+  LOAD["加载与版本校验 · L<br/>hash 与向量一致性"]
+  REQUEST["查询输入 · L<br/>user ID / 已发生历史"]
+  USER["用户编码 · L<br/>1 或 K 个有效兴趣向量"]
+  SCORE["精确全库点积 · L<br/>有效兴趣取 max"]
+  FILTER["过滤与 Top-K · L<br/>已看 / padding"]
+  RESULT["结果与评估 · L<br/>Recall / NDCG / query JSON"]
+  ANN["规模化待办 · P<br/>采样 loss / ANN / 实时更新"]
+  DATA --> CHECK
+  CHECK --> SPLIT
+  SPLIT --> TRAIN
+  SPLIT --> VALID
+  SPLIT --> TEST
+  TRAIN --> MODEL
+  MODEL -->|候选 checkpoint| VALID
+  VALID -->|只用验证分数选模| CKPT
+  CKPT --> VECTORS
+  VECTORS --> INDEX
+  CKPT --> LOAD
+  INDEX --> LOAD
+  REQUEST --> USER
+  LOAD --> USER
+  USER --> SCORE
+  INDEX --> SCORE
+  SCORE --> FILTER
+  REQUEST -->|全部已看 ID| FILTER
+  FILTER --> RESULT
+  TEST -->|选模完成后评估| RESULT
+  INDEX -.-> ANN
+  classDef local fill:#e7f5ee,stroke:#16845b,color:#145239
+  classDef planned fill:#fff3dc,stroke:#c88718,color:#785014
+  class DATA,CHECK,SPLIT,TRAIN,VALID,TEST,MODEL,CKPT,VECTORS,INDEX,LOAD,REQUEST,USER,SCORE,FILTER,RESULT local
+  class ANN planned

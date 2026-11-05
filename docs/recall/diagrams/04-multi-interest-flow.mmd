@@ -1,0 +1,32 @@
+graph TD
+  INPUT["输入与历史 · L<br/>user ID / 内容表征 / mask"]
+  SINGLE["单向量编码 · L<br/>MF / pooled / session_gate"]
+  ROUTE["多兴趣抽取 · L<br/>MIND / SA / DR 参考"]
+  ONE["用户向量 · L<br/>shape: B x 1 x d"]
+  MANY["有效兴趣向量 · L<br/>shape: B x K x d / mask"]
+  POS["训练正例 · L<br/>仅监督训练可见"]
+  READOUT["训练 readout · L<br/>按正例选择获胜兴趣"]
+  LOSS["训练 loss · L<br/>全目录 softmax / 反向更新"]
+  CATALOG["内容向量表 · L<br/>shape: V x d"]
+  DOT["服务检索 · L<br/>所有有效兴趣点积取 max"]
+  TOP["已看过滤与 Top-K · L<br/>服务不使用未知真实目标"]
+  ANN["ANN 分头检索 · P<br/>K 个 query / 合并去重"]
+  INPUT --> SINGLE
+  INPUT --> ROUTE
+  SINGLE --> ONE
+  ROUTE --> MANY
+  ONE --> READOUT
+  MANY --> READOUT
+  POS --> READOUT
+  READOUT --> LOSS
+  CATALOG --> LOSS
+  ONE --> DOT
+  MANY --> DOT
+  CATALOG --> DOT
+  DOT --> TOP
+  MANY -.-> ANN
+  ANN -.->|后续生产实现| TOP
+  classDef local fill:#e7f5ee,stroke:#16845b,color:#145239
+  classDef planned fill:#fff3dc,stroke:#c88718,color:#785014
+  class INPUT,SINGLE,ROUTE,ONE,MANY,POS,READOUT,LOSS,CATALOG,DOT,TOP local
+  class ANN planned

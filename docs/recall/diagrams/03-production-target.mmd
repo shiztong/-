@@ -1,0 +1,41 @@
+graph LR
+  LOGS["行为与曝光日志 · P<br/>可视 / 起播 / 反馈"]
+  STREAM["事件处理 · P<br/>去重 / 迟到 / 成熟窗口"]
+  STATE["在线用户状态 · P<br/>会话 / 长短期 / 负反馈"]
+  SAMPLES["时点正确样本 · P<br/>特征版本 / 标签窗口"]
+  FIT["训练与蒸馏 · P<br/>采样 loss / 共享底座"]
+  CONTENT["内容准入与理解 · P<br/>作者 / 语义 / 多模态"]
+  ENCODE["内容编码与增量 · P<br/>编码器版本 / 过期移除"]
+  ANN["ANN 与多通道索引 · P<br/>新旧索引 / 原子切换"]
+  REQUEST["列表页或视频流请求 · P<br/>场景 / 入口 / deadline"]
+  USER["用户塔与兴趣路由 · P<br/>当前状态 / 有效兴趣数"]
+  RETRIEVE["并行召回 · P<br/>协同 / 向量 / 关注 / 探索"]
+  FUSE["候选融合 · P<br/>来源 / 去重 / 配额"]
+  DOWN["粗排到最终分发 · P<br/>精排 / 重排 / 强准入"]
+  SERVE["真实展示与消费 · P<br/>反馈归因 / 随机分桶"]
+  EXP["实验与监控 · P<br/>长期收益 / 成本 / P99"]
+  BUNDLE["统一版本包 · P<br/>特征 / 模型 / 索引 / 校准"]
+  LOGS --> STREAM
+  STREAM --> STATE
+  STREAM --> SAMPLES
+  SAMPLES --> FIT
+  CONTENT -->|时点可用属性| SAMPLES
+  CONTENT --> ENCODE
+  FIT --> ENCODE
+  ENCODE --> ANN
+  REQUEST --> USER
+  STATE --> USER
+  FIT -->|模型发布| USER
+  USER --> RETRIEVE
+  ANN --> RETRIEVE
+  RETRIEVE --> FUSE
+  FUSE --> DOWN
+  DOWN --> SERVE
+  SERVE -->|可归因事件| LOGS
+  SERVE --> EXP
+  FIT --> BUNDLE
+  ANN --> BUNDLE
+  BUNDLE -.->|兼容发布与回滚| RETRIEVE
+  BUNDLE -.->|版本观测| EXP
+  classDef planned fill:#fff3dc,stroke:#c88718,color:#785014
+  class LOGS,STREAM,STATE,SAMPLES,FIT,CONTENT,ENCODE,ANN,REQUEST,USER,RETRIEVE,FUSE,DOWN,SERVE,EXP,BUNDLE planned

@@ -1,0 +1,145 @@
+{
+  "renderer": "beautiful-mermaid",
+  "version": "1.1.3",
+  "rasterizer": "@resvg/resvg-js@2.6.2",
+  "fonts": [
+    {
+      "file": "NotoSansCJK-Regular.ttc",
+      "sha256": "b76b0433203017ca80401b2ee0dd69350349871c4b19d504c34dbdd80541690a"
+    },
+    {
+      "file": "NotoSansCJK-Bold.ttc",
+      "sha256": "faa5f3656a78b2e2d450d27fe8382c778bc2b6bb5ea29c986664a6a435056ceb"
+    }
+  ],
+  "diagrams": [
+    {
+      "id": "01-evolution",
+      "title": "召回演进路线 · 能力分支与落地状态",
+      "width": 1100,
+      "height": 1299,
+      "statusCounts": {
+        "L": 7,
+        "E": 2,
+        "P": 5,
+        "X": 1
+      },
+      "sourceSha256": "9c8c50115d4519038a7fad1342fc526ab9990afdb0eb42786efdd826b2e7963b",
+      "svgSha256": "d5fecbe3c1d5df2f34576fe1267da19699c5bddab1c34773659109da58a85524",
+      "pngSha256": "050c6399a7742c4c56deb2a1d9e4cada0952ffc586a540385cfe42ea5fd093ca",
+      "links": {
+        "R0": "https://github.com/shiztong/-/blob/master/recommender/engine.py#L7",
+        "R1": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L95",
+        "R2": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L100",
+        "R3": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L112",
+        "R4": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L216",
+        "R5A": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L162",
+        "R5B": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L221",
+        "R6": "https://github.com/shiztong/-/blob/master/docs/recall/README.md#r6-内容语义升级合同",
+        "R7": "https://github.com/wujcan/SGL/blob/58fe93149ca6fb733639f556343c41f12206ba55/model/general_recommender/SGL.py",
+        "EG": "https://github.com/shiztong/-/blob/master/docs/recall/README.md",
+        "FUSE": "https://github.com/shiztong/-/blob/master/docs/recall/README.md",
+        "R8": "https://github.com/shiztong/-/blob/master/docs/recall/README.md#r8-跨层协同升级合同",
+        "R9": "https://github.com/shiztong/-/blob/master/docs/recommendation/13-industry-evidence.md",
+        "R10": "https://github.com/shiztong/-/blob/master/docs/recall/README.md#r10-生成式增量通道合同",
+        "GATE": "https://github.com/shiztong/-/blob/master/docs/recall/README.md"
+      }
+    },
+    {
+      "id": "02-current-dataflow",
+      "title": "当前实现 · 从样本到召回结果的数据流",
+      "width": 1100,
+      "height": 1800,
+      "statusCounts": {
+        "L": 16,
+        "E": 0,
+        "P": 1,
+        "X": 0
+      },
+      "sourceSha256": "7ee86ec0c9b24fcab66a6999e83f7e985389064c8fe76287c28c72409c13ebe1",
+      "svgSha256": "1954e9a89fceec9922d2911c96345949e6c096bf38010cf658591b9a0f7ddb03",
+      "pngSha256": "2b802874d5808c0caf3391daa3e8784329205c3465d41b42dc3e81a37b522109",
+      "links": {
+        "DATA": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L27",
+        "CHECK": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L53",
+        "SPLIT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L90",
+        "TRAIN": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L80",
+        "VALID": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L112",
+        "TEST": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L112",
+        "MODEL": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L144",
+        "CKPT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L144",
+        "VECTORS": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L67",
+        "INDEX": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L144",
+        "LOAD": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L211",
+        "REQUEST": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L226",
+        "USER": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L226",
+        "SCORE": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L82",
+        "FILTER": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L226",
+        "RESULT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L112",
+        "ANN": "https://github.com/shiztong/-/blob/master/docs/recall/README.md"
+      }
+    },
+    {
+      "id": "03-production-target",
+      "title": "生产目标 · 召回训练、服务与反馈闭环",
+      "width": 2139,
+      "height": 650,
+      "statusCounts": {
+        "L": 0,
+        "E": 0,
+        "P": 16,
+        "X": 0
+      },
+      "sourceSha256": "a433cc0a1d96892cd0ac3d52b14893f84203745ac87bb02095ca5283982d6347",
+      "svgSha256": "b59d1d22f396bf0eb70f1de9832dcd1d13fd9183940acd5948067b26d5df2037",
+      "pngSha256": "2279467d6148da0bff5a3184b47c1be05a5ab2caa4db8c8527305353a7106596",
+      "links": {
+        "LOGS": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "STREAM": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "STATE": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "SAMPLES": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "FIT": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "CONTENT": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "ENCODE": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "ANN": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "REQUEST": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "USER": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "RETRIEVE": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "FUSE": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "DOWN": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "SERVE": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "EXP": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md",
+        "BUNDLE": "https://github.com/shiztong/-/blob/master/docs/recommendation/14-production-execution.md"
+      }
+    },
+    {
+      "id": "04-multi-interest-flow",
+      "title": "单向量与多兴趣 · 训练和服务的关键区别",
+      "width": 1100,
+      "height": 800,
+      "statusCounts": {
+        "L": 11,
+        "E": 0,
+        "P": 1,
+        "X": 0
+      },
+      "sourceSha256": "eec4c1bb8764bb7a2f6661413e55c6c039d49453fdbcaf05c4de4601c739c06e",
+      "svgSha256": "a0f4440df94309499abe59aec1d5aaa6c5d1fe1f6d4207cbac96f4ae9b7828d5",
+      "pngSha256": "708b1dc9f622189bef6f59dff92df9c6e8c8455c8d82fbaee51023ea9950c11d",
+      "links": {
+        "INPUT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L101",
+        "SINGLE": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L100",
+        "ROUTE": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L180",
+        "ONE": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L90",
+        "MANY": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L151",
+        "POS": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L71",
+        "READOUT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L71",
+        "LOSS": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L71",
+        "CATALOG": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L67",
+        "DOT": "https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L82",
+        "TOP": "https://github.com/shiztong/-/blob/master/recommender/retrieval/experiment.py#L226",
+        "ANN": "https://github.com/shiztong/-/blob/master/docs/recall/README.md"
+      }
+    }
+  ]
+}
