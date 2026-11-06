@@ -1,12 +1,12 @@
-<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>召回演进、序列与消偏图册</title><style>
+<!doctype html><html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>召回统一路标与数据流图册</title><style>
 *{box-sizing:border-box}body{margin:0;background:#eef2f6;color:#172033;font:15px/1.65 'Noto Sans CJK SC',system-ui,sans-serif}main{max-width:1540px;margin:auto;padding:28px}h1{font-size:30px;margin:0}header p{color:#526074;margin:4px 0 18px}nav,.toolbar,.downloads{display:flex;gap:10px;flex-wrap:wrap;margin:14px 0}button,a{font:inherit}button{background:white;border:1px solid #ccd5df;border-radius:8px;padding:8px 14px;cursor:pointer}button[aria-selected=true]{background:#0f513d;color:white;border-color:#0f513d}a{color:#2362b5}section{background:white;padding:20px;border:1px solid #dce2ea;border-radius:14px}section[hidden]{display:none}h2{margin:0;font-size:20px}p{margin:5px 0 12px}section>p,.note{color:#59677b}.viewport{height:68vh;overflow:auto;background:#f8fafc;border:1px solid #e3e8ef;border-radius:10px;overscroll-behavior:contain}.canvas{padding:16px;min-width:100%}.canvas>svg{display:block;max-width:none;height:auto}.downloads a{padding-right:12px}.toolbar{align-items:center}.toolbar input{width:180px}footer{color:#66758a;margin-top:18px}.note{margin-top:14px}button:focus-visible,a:focus-visible{outline:3px solid #579aff;outline-offset:3px}@media(max-width:700px){main{padding:12px}h1{font-size:24px}.viewport{height:62vh}section{padding:12px}}
-</style></head><body><main><header><h1>召回演进、序列与消偏图册</h1><p>六张图覆盖能力路线、当前实现、生产目标、训练与检索、SDM 优化与位置消偏。L / E / P / X 明确区分落地状态。</p><a href="../README.md">召回总路标与收益证据</a> · <a href="../IMPLEMENTATION.md">训练、导出与查询手册</a></header><nav aria-label="选择图表"><button class="tab" data-index="0" aria-selected="true">1. 召回演进路线</button><button class="tab" data-index="1" aria-selected="false">2. 当前实现</button><button class="tab" data-index="2" aria-selected="false">3. 生产目标</button><button class="tab" data-index="3" aria-selected="false">4. 单向量与多兴趣</button><button class="tab" data-index="4" aria-selected="false">5. SDM 与序列优化</button><button class="tab" data-index="5" aria-selected="false">6. 位置消偏</button></nav><div class="toolbar"><button id="fit">适应宽度</button><button id="actual">原始尺寸</button><label>缩放 <input id="zoom" type="range" min="25" max="200" value="100"></label><output id="scale">100%</output><span>可滚动查看，点击节点跳转代码</span></div><section class="panel"  data-width="1100" data-height="1299"><h2>召回演进路线 · 能力分支与落地状态</h2><p>从协同与双塔到会话、多兴趣、语义、图协同，再到跨层对齐与前沿研究。</p><div class="downloads"><a href="01-evolution.svg" download>下载 SVG</a><a href="01-evolution.png" download>下载 PNG</a><a href="01-evolution.mmd">Mermaid 源码</a></div><div class="viewport"><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1299" viewBox="0 0 1100 1299" role="img" aria-labelledby="01-evolution-title 01-evolution-desc">
-<title id="01-evolution-title">召回演进路线 · 能力分支与落地状态</title><desc id="01-evolution-desc">从协同与双塔到会话、多兴趣、语义、图协同，再到跨层对齐与前沿研究。 L 是本地参考实现，不是原厂精确复现；E 仅表示外部源码已核验。升级需验证收益和成本。</desc>
+</style></head><body><main><header><h1>召回统一路标与数据流图册</h1><p>七张图覆盖能力路线、当前实现、生产目标、训练检索、SDM、消偏及统一交付依赖。L / C / E / P / X 区分模型 smoke、组件测试、外部源码与未完成项。</p><a href="../README.md">召回总路标与收益证据</a> · <a href="../IMPLEMENTATION.md">训练、导出与查询手册</a></header><nav aria-label="选择图表"><button class="tab" data-index="0" aria-selected="true">1. 召回演进路线</button><button class="tab" data-index="1" aria-selected="false">2. 当前实现</button><button class="tab" data-index="2" aria-selected="false">3. 生产目标</button><button class="tab" data-index="3" aria-selected="false">4. 单向量与多兴趣</button><button class="tab" data-index="4" aria-selected="false">5. SDM 与序列优化</button><button class="tab" data-index="5" aria-selected="false">6. 位置消偏</button><button class="tab" data-index="6" aria-selected="false">7. 统一交付依赖</button></nav><div class="toolbar"><button id="fit">适应宽度</button><button id="actual">原始尺寸</button><label>缩放 <input id="zoom" type="range" min="25" max="200" value="100"></label><output id="scale">100%</output><span>可滚动查看，点击节点跳转代码</span></div><section class="panel"  data-width="1100" data-height="1299"><h2>召回演进路线 · 能力分支与落地状态</h2><p>从协同与双塔到会话、多兴趣、语义、图协同，再到跨层对齐与前沿研究。</p><div class="downloads"><a href="01-evolution.svg" download>下载 SVG</a><a href="01-evolution.png" download>下载 PNG</a><a href="01-evolution.mmd">Mermaid 源码</a></div><div class="viewport"><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1299" viewBox="0 0 1100 1299" role="img" aria-labelledby="01-evolution-title 01-evolution-desc">
+<title id="01-evolution-title">召回演进路线 · 能力分支与落地状态</title><desc id="01-evolution-desc">从协同与双塔到会话、多兴趣、语义、图协同，再到跨层对齐与前沿研究。 L 是本地参考；C 仅组件已测；E 仅外部源码。它们均不自动表示生产就绪或升级有效。</desc>
 <style>text{font-family:'Noto Sans CJK SC',sans-serif}a:hover .node>rect{stroke-width:2}</style>
 <rect width="100%" height="100%" fill="#f8fafc"/>
 <text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">召回演进路线 · 能力分支与落地状态</text>
 <text x="40" y="65" font-size="13" fill="#475569">从协同与双塔到会话、多兴趣、语义、图协同，再到跨层对齐与前沿研究。</text>
-<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(26.253291666666655,112)">
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 模型服务 smoke</text><circle cx="236" cy="91" r="5" fill="#087f8c"/><text x="250" y="96" font-size="13" fill="#475569">C 组件已测试</text><circle cx="428" cy="91" r="5" fill="#3b6dd8"/><text x="442" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="620" cy="91" r="5" fill="#c88718"/><text x="634" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="812" cy="91" r="5" fill="#82708e"/><text x="826" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(26.253291666666655,112)">
 
 <defs>
   <marker id="01-evolution-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
@@ -16,15 +16,15 @@
     <polygon points="8 0, 0 2.5, 8 5" fill="#475569" stroke="#475569" stroke-width="0.75" stroke-linejoin="round" />
   </marker>
 </defs>
-<polyline class="edge" data-from="R0" data-to="R1" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="566.646,93.80000000000001 566.646,145.8" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R1" data-to="R2" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="566.646,199.60000000000002 566.646,251.60000000000002" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R2" data-to="R3" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="意图变化" points="510.4902,305.40000000000003 510.4902,333.40000000000003 215.95574999999997,333.40000000000003 215.95574999999997,443.70000000000005" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R0" data-to="R1" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="569.4865,93.80000000000001 569.4865,145.8" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R1" data-to="R2" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="569.4865,199.60000000000002 569.4865,251.60000000000002" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R2" data-to="R3" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="意图变化" points="513.3307,305.40000000000003 513.3307,333.40000000000003 215.95574999999997,333.40000000000003 215.95574999999997,443.70000000000005" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
 <polyline class="edge" data-from="R3" data-to="SOPT" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="215.95574999999997,497.50000000000006 215.95574999999997,523.5 153.9705,523.5 153.9705,549.5" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R2" data-to="R4" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="兴趣覆盖" points="547.9274,305.40000000000003 547.9274,345.40000000000003 466.3155,345.40000000000003 466.3155,443.70000000000005" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R4" data-to="R5A" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="466.3155,497.50000000000006 466.3155,523.5 369.9369999999999,523.5 369.9369999999999,549.5" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R4" data-to="R5B" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="466.3155,497.50000000000006 466.3155,523.5 570.598,523.5 570.598,549.5" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R2" data-to="R6" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="冷启动分支" points="585.3646,305.40000000000003 585.3646,345.40000000000003 706.9409166666666,345.40000000000003 706.9409166666666,443.70000000000005" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R2" data-to="R7" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="高阶协同分支" points="622.8018,305.40000000000003 622.8018,333.40000000000003 919.0874166666665,333.40000000000003 919.0874166666665,443.70000000000005" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R2" data-to="R4" data-style="solid" data-arrow-start="false" data-arrow-end="true" data-label="兴趣覆盖" points="550.7679,305.40000000000003 550.7679,345.40000000000003 469.156,345.40000000000003 469.156,443.70000000000005" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R4" data-to="R5A" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="469.156,497.50000000000006 469.156,523.5 369.9369999999999,523.5 369.9369999999999,549.5" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R4" data-to="R5B" data-style="solid" data-arrow-start="false" data-arrow-end="true" points="469.156,497.50000000000006 469.156,523.5 570.598,523.5 570.598,549.5" fill="none" stroke="#64748b" stroke-width="1" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R2" data-to="R6" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="冷启动分支" points="588.2051,305.40000000000003 588.2051,345.40000000000003 706.9409166666666,345.40000000000003 706.9409166666666,443.70000000000005" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R2" data-to="R7" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="高阶协同分支" points="625.6423,305.40000000000003 625.6423,333.40000000000003 919.0874166666665,333.40000000000003 919.0874166666665,443.70000000000005" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
 <polyline class="edge" data-from="R7" data-to="EG" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="919.0874166666665,497.50000000000006 919.0874166666665,523.5 870.2549166666665,523.5 870.2549166666665,549.5" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
 <polyline class="edge" data-from="R3" data-to="FUSE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="215.95574999999997,497.50000000000006 215.95574999999997,523.5 570.598,523.5 570.598,641.3000000000001" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
 <polyline class="edge" data-from="R5A" data-to="FUSE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="369.9369999999999,603.3 369.9369999999999,622.3 570.598,622.3 570.598,641.3000000000001" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
@@ -32,17 +32,17 @@
 <polyline class="edge" data-from="R6" data-to="FUSE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="706.9409166666666,497.50000000000006 706.9409166666666,622.3 570.598,622.3 570.598,641.3000000000001" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
 <polyline class="edge" data-from="R7" data-to="FUSE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="919.0874166666665,497.50000000000006 919.0874166666665,523.5 570.598,523.5 570.598,641.3000000000001" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
 <polyline class="edge" data-from="FUSE" data-to="R8" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="570.598,695.1 570.598,747.1" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R8" data-to="R9" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="长序列价值已验证" points="542.2408333333333,800.9 542.2408333333333,840.9 462.32991666666663,840.9 462.32991666666663,925.1999999999999" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R8" data-to="R10" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="增量候选实验" points="598.9551666666666,800.9 598.9551666666666,840.9 680.0339166666666,840.9 680.0339166666666,925.1999999999999" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R9" data-to="GATE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="462.32991666666663,978.9999999999999 462.32991666666663,1004.9999999999998 570.598,1004.9999999999998 570.598,1030.9999999999998" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
-<polyline class="edge" data-from="R10" data-to="GATE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="680.0339166666666,978.9999999999999 680.0339166666666,1004.9999999999998 570.598,1004.9999999999998 570.598,1030.9999999999998" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R8" data-to="R9" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="长序列价值已验证" points="542.2408333333333,800.9 542.2408333333333,840.9 465.17041666666665,840.9 465.17041666666665,925.1999999999999" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R8" data-to="R10" data-style="dotted" data-arrow-start="false" data-arrow-end="true" data-label="增量候选实验" points="598.9551666666666,800.9 598.9551666666666,840.9 682.8744166666667,840.9 682.8744166666667,925.1999999999999" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R9" data-to="GATE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="465.17041666666665,978.9999999999999 465.17041666666665,1004.9999999999998 570.598,1004.9999999999998 570.598,1030.9999999999998" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
+<polyline class="edge" data-from="R10" data-to="GATE" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="682.8744166666667,978.9999999999999 682.8744166666667,1004.9999999999998 570.598,1004.9999999999998 570.598,1030.9999999999998" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#01-evolution-arrowhead)" />
 <g class="edge-label" data-from="R2" data-to="R3" data-label="意图变化">
   <rect x="182.95574999999997" y="368.40000000000003" width="65.17" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
   <text x="215.54074999999997" y="383.55" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">意图变化</text>
 </g>
 <g class="edge-label" data-from="R2" data-to="R4" data-label="兴趣覆盖">
-  <rect x="433.3155" y="352.40000000000003" width="65.17" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
-  <text x="465.90049999999997" y="367.55" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">兴趣覆盖</text>
+  <rect x="436.156" y="352.40000000000003" width="65.17" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
+  <text x="468.741" y="367.55" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">兴趣覆盖</text>
 </g>
 <g class="edge-label" data-from="R2" data-to="R6" data-label="冷启动分支">
   <rect x="667.9409166666666" y="352.40000000000003" width="77.05000000000001" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
@@ -53,27 +53,27 @@
   <text x="919.0524166666665" y="395.55000000000007" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">高阶协同分支</text>
 </g>
 <g class="edge-label" data-from="R8" data-to="R9" data-label="长序列价值已验证">
-  <rect x="405.82991666666663" y="847.9" width="112.69000000000001" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
-  <text x="462.17491666666666" y="863.05" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">长序列价值已验证</text>
+  <rect x="408.67041666666665" y="847.9" width="112.69000000000001" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
+  <text x="465.0154166666667" y="863.05" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">长序列价值已验证</text>
 </g>
 <g class="edge-label" data-from="R8" data-to="R10" data-label="增量候选实验">
-  <rect x="635.5339166666666" y="847.9" width="88.93" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
-  <text x="679.9989166666667" y="863.05" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">增量候选实验</text>
+  <rect x="638.3744166666667" y="847.9" width="88.93" height="30.3" rx="2" ry="2" fill="#f8fafc" stroke="#dde2e9" stroke-width="1" />
+  <text x="682.8394166666667" y="863.05" text-anchor="middle" font-size="11" font-weight="400" fill="#475569" dy="3.8499999999999996">增量候选实验</text>
 </g>
 <a href="https://github.com/shiztong/-/blob/master/recommender/engine.py#L7" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R0" data-label="R0 协同与热门回退 · L
 UserCF / 热门补齐" data-shape="rectangle">
-  <rect x="474.1645" y="40" width="184.96299999999997" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="566.646" y="66.9" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="566.646" dy="-3.9000000000000012">R0 协同与热门回退 · L</tspan><tspan x="566.646" dy="16.900000000000002">UserCF / 热门补齐</tspan></text>
+  <rect x="477.005" y="40" width="184.96299999999997" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="569.4865" y="66.9" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="569.4865" dy="-3.9000000000000012">R0 协同与热门回退 · L</tspan><tspan x="569.4865" dy="16.900000000000002">UserCF / 热门补齐</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L95" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R1" data-label="R1 ID-MF · L
 单向量协同基线" data-shape="rectangle">
-  <rect x="493.80099999999993" y="145.8" width="145.69" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="566.646" y="172.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="566.646" dy="-3.9000000000000012">R1 ID-MF · L</tspan><tspan x="566.646" dy="16.900000000000002">单向量协同基线</tspan></text>
+  <rect x="496.64149999999995" y="145.8" width="145.69" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="569.4865" y="172.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="569.4865" dy="-3.9000000000000012">R1 ID-MF · L</tspan><tspan x="569.4865" dy="16.900000000000002">单向量协同基线</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L100" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R2" data-label="R2 池化双塔 · L
 属性与历史 → 检索向量" data-shape="rectangle">
-  <rect x="473.053" y="251.60000000000002" width="187.18599999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="566.646" y="278.5" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="566.646" dy="-3.9000000000000012">R2 池化双塔 · L</tspan><tspan x="566.646" dy="16.900000000000002">属性与历史 → 检索向量</tspan></text>
+  <rect x="475.8935" y="251.60000000000002" width="187.18599999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="569.4865" y="278.5" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="569.4865" dy="-3.9000000000000012">R2 池化双塔 · L</tspan><tspan x="569.4865" dy="16.900000000000002">属性与历史 → 检索向量</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L112" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R3" data-label="R3 SDM 风格 · L
 长短期融合 / 单向量" data-shape="rectangle">
@@ -87,8 +87,8 @@ UserCF / 热门补齐" data-shape="rectangle">
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L216" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R4" data-label="R4 MIND 参考 · L
 路由 / 有效兴趣数" data-shape="rectangle">
-  <rect x="389.395" y="443.70000000000005" width="153.84099999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="466.3155" y="470.6" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="466.3155" dy="-3.9000000000000012">R4 MIND 参考 · L</tspan><tspan x="466.3155" dy="16.900000000000002">路由 / 有效兴趣数</tspan></text>
+  <rect x="392.2355" y="443.70000000000005" width="153.84099999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
+  <text x="469.156" y="470.6" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="469.156" dy="-3.9000000000000012">R4 MIND 参考 · L</tspan><tspan x="469.156" dy="16.900000000000002">路由 / 有效兴趣数</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/models.py#L162" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R5A" data-label="R5a ComiRec-SA · L
 多组注意力池化" data-shape="rectangle">
@@ -115,10 +115,10 @@ SGL 作者代码已核验" data-shape="rectangle">
   <rect x="782.5899166666666" y="549.5" width="175.32999999999998" height="53.800000000000004" rx="0" ry="0" fill="#f1edf4" stroke="#82708e" stroke-width="0.75" />
   <text x="870.2549166666665" y="576.4" text-anchor="middle" font-size="13" font-weight="500" fill="#574561"><tspan x="870.2549166666665" dy="-3.9000000000000012">R7b EGES 候选 · X</tspan><tspan x="870.2549166666665" dy="16.900000000000002">侧信息训练链待修正</tspan></text>
 </g></a>
-<a href="https://github.com/shiztong/-/blob/master/docs/recall/README.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="FUSE" data-label="多路召回与融合 · P
-去重 / 配额 / 准入" data-shape="rectangle">
-  <rect x="487.3789999999999" y="641.3000000000001" width="166.438" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
-  <text x="570.598" y="668.2" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="570.598" dy="-3.9000000000000012">多路召回与融合 · P</tspan><tspan x="570.598" dy="16.900000000000002">去重 / 配额 / 准入</tspan></text>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/fusion.py#L23" target="_blank" rel="noopener noreferrer"><g class="node" data-id="FUSE" data-label="候选融合组件 · C
+RRF / owner 配额 / 来源" data-shape="rectangle">
+  <rect x="478.85749999999996" y="641.3000000000001" width="183.481" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="570.598" y="668.2" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="570.598" dy="-3.9000000000000012">候选融合组件 · C</tspan><tspan x="570.598" dy="16.900000000000002">RRF / owner 配额 / 来源</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/docs/recall/README.md#r8-跨层协同升级合同" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R8" data-label="R8 跨层目标对齐 · P
 多目标 / 教师蒸馏" data-shape="rectangle">
@@ -127,13 +127,13 @@ SGL 作者代码已核验" data-shape="rectangle">
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/docs/recommendation/13-industry-evidence.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R9" data-label="R9 HSTU 长序列 · E
 官方实现 / 本地未复现" data-shape="rectangle">
-  <rect x="370.58941666666664" y="925.1999999999999" width="183.481" height="53.800000000000004" rx="0" ry="0" fill="#e9f0ff" stroke="#3b6dd8" stroke-width="0.75" />
-  <text x="462.32991666666663" y="952.0999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="#234681"><tspan x="462.32991666666663" dy="-3.9000000000000012">R9 HSTU 长序列 · E</tspan><tspan x="462.32991666666663" dy="16.900000000000002">官方实现 / 本地未复现</tspan></text>
+  <rect x="373.42991666666666" y="925.1999999999999" width="183.481" height="53.800000000000004" rx="0" ry="0" fill="#e9f0ff" stroke="#3b6dd8" stroke-width="0.75" />
+  <text x="465.17041666666665" y="952.0999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="#234681"><tspan x="465.17041666666665" dy="-3.9000000000000012">R9 HSTU 长序列 · E</tspan><tspan x="465.17041666666665" dy="16.900000000000002">官方实现 / 本地未复现</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/docs/recall/README.md#r10-生成式增量通道合同" target="_blank" rel="noopener noreferrer"><g class="node" data-id="R10" data-label="R10 生成式增量召回 · P
 语义 ID / 约束解码" data-shape="rectangle">
-  <rect x="586.0704166666667" y="925.1999999999999" width="187.92699999999996" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
-  <text x="680.0339166666666" y="952.0999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="680.0339166666666" dy="-3.9000000000000012">R10 生成式增量召回 · P</tspan><tspan x="680.0339166666666" dy="16.900000000000002">语义 ID / 约束解码</tspan></text>
+  <rect x="588.9109166666667" y="925.1999999999999" width="187.92699999999996" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="682.8744166666667" y="952.0999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="682.8744166666667" dy="-3.9000000000000012">R10 生成式增量召回 · P</tspan><tspan x="682.8744166666667" dy="16.900000000000002">语义 ID / 约束解码</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/docs/recall/README.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="GATE" data-label="上线门槛 · P
 同预算增益 / 成本 / A-B" data-shape="rectangle">
@@ -141,16 +141,16 @@ SGL 作者代码已核验" data-shape="rectangle">
   <text x="570.598" y="1057.8999999999999" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="570.598" dy="-3.9000000000000012">上线门槛 · P</tspan><tspan x="570.598" dy="16.900000000000002">同预算增益 / 成本 / A-B</tspan></text>
 </g></a>
 </g>
-<text x="40" y="1267" font-size="12" fill="#475569">L 是本地参考实现，不是原厂精确复现；E 仅表示外部源码已核验。升级需验证收益和成本。</text>
+<text x="40" y="1267" font-size="12" fill="#475569">L 是本地参考；C 仅组件已测；E 仅外部源码。它们均不自动表示生产就绪或升级有效。</text>
 <text x="40" y="1287" font-size="11" fill="#64748b">beautiful-mermaid 1.1.3 · 节点可点击查看代码或任务 · 连线表示能力依赖或数据流</text>
 </svg>
-</div></div><p class="note">L 是本地参考实现，不是原厂精确复现；E 仅表示外部源码已核验。升级需验证收益和成本。</p></section><section class="panel" hidden data-width="1100" data-height="1800"><h2>当前实现 · 从样本到召回结果的数据流</h2><p>时间留出、六模型训练、选模、内容向量导出、版本校验、精确检索与已看过滤。</p><div class="downloads"><a href="02-current-dataflow.svg" download>下载 SVG</a><a href="02-current-dataflow.png" download>下载 PNG</a><a href="02-current-dataflow.mmd">Mermaid 源码</a></div><div class="viewport"><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1800" viewBox="0 0 1100 1800" role="img" aria-labelledby="02-current-dataflow-title 02-current-dataflow-desc">
+</div></div><p class="note">L 是本地参考；C 仅组件已测；E 仅外部源码。它们均不自动表示生产就绪或升级有效。</p></section><section class="panel" hidden data-width="1100" data-height="1800"><h2>当前实现 · 从样本到召回结果的数据流</h2><p>时间留出、六模型训练、选模、内容向量导出、版本校验、精确检索与已看过滤。</p><div class="downloads"><a href="02-current-dataflow.svg" download>下载 SVG</a><a href="02-current-dataflow.png" download>下载 PNG</a><a href="02-current-dataflow.mmd">Mermaid 源码</a></div><div class="viewport"><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1800" viewBox="0 0 1100 1800" role="img" aria-labelledby="02-current-dataflow-title 02-current-dataflow-desc">
 <title id="02-current-dataflow-title">当前实现 · 从样本到召回结果的数据流</title><desc id="02-current-dataflow-desc">时间留出、六模型训练、选模、内容向量导出、版本校验、精确检索与已看过滤。 当前 index.pt 是小目录精确向量表；ANN、采样 loss、实时特征与增量更新仍未实现。</desc>
 <style>text{font-family:'Noto Sans CJK SC',sans-serif}a:hover .node>rect{stroke-width:2}</style>
 <rect width="100%" height="100%" fill="#f8fafc"/>
 <text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">当前实现 · 从样本到召回结果的数据流</text>
 <text x="40" y="65" font-size="13" fill="#475569">时间留出、六模型训练、选模、内容向量导出、版本校验、精确检索与已看过滤。</text>
-<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(148.16541666666672,112)">
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 模型服务 smoke</text><circle cx="236" cy="91" r="5" fill="#087f8c"/><text x="250" y="96" font-size="13" fill="#475569">C 组件已测试</text><circle cx="428" cy="91" r="5" fill="#3b6dd8"/><text x="442" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="620" cy="91" r="5" fill="#c88718"/><text x="634" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="812" cy="91" r="5" fill="#82708e"/><text x="826" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(148.16541666666672,112)">
 
 <defs>
   <marker id="02-current-dataflow-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
@@ -292,7 +292,7 @@ Recall / NDCG / query JSON" data-shape="rectangle">
 <rect width="100%" height="100%" fill="#f8fafc"/>
 <text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">生产目标 · 召回训练、服务与反馈闭环</text>
 <text x="40" y="65" font-size="13" fill="#475569">目标架构，全图 P：日志回流、在线状态、语义编码、ANN、版本包与分发实验尚未贯通。</text>
-<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(0.3364999999998872,112)">
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 模型服务 smoke</text><circle cx="236" cy="91" r="5" fill="#087f8c"/><text x="250" y="96" font-size="13" fill="#475569">C 组件已测试</text><circle cx="428" cy="91" r="5" fill="#3b6dd8"/><text x="442" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="620" cy="91" r="5" fill="#c88718"/><text x="634" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="812" cy="91" r="5" fill="#82708e"/><text x="826" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(0.3364999999998872,112)">
 
 <defs>
   <marker id="03-production-target-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
@@ -434,7 +434,7 @@ Recall / NDCG / query JSON" data-shape="rectangle">
 <rect width="100%" height="100%" fill="#f8fafc"/>
 <text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">单向量与多兴趣 · 训练和服务的关键区别</text>
 <text x="40" y="65" font-size="13" fill="#475569">训练可用正例进行 hard readout；检索不能使用未知真实目标，需评估所有有效兴趣。</text>
-<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(72.6842916666667,112)">
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 模型服务 smoke</text><circle cx="236" cy="91" r="5" fill="#087f8c"/><text x="250" y="96" font-size="13" fill="#475569">C 组件已测试</text><circle cx="428" cy="91" r="5" fill="#3b6dd8"/><text x="442" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="620" cy="91" r="5" fill="#c88718"/><text x="634" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="812" cy="91" r="5" fill="#82708e"/><text x="826" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(72.6842916666667,112)">
 
 <defs>
   <marker id="04-multi-interest-flow-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
@@ -527,13 +527,13 @@ K 个 query / 合并去重" data-shape="rectangle">
 <text x="40" y="768" font-size="12" fill="#475569">K 增加 query 向量数，不等于业务 QPS 提升 K 倍；需比较同候选数和同服务预算。</text>
 <text x="40" y="788" font-size="11" fill="#64748b">beautiful-mermaid 1.1.3 · 节点可点击查看代码或任务 · 连线表示能力依赖或数据流</text>
 </svg>
-</div></div><p class="note">K 增加 query 向量数，不等于业务 QPS 提升 K 倍；需比较同候选数和同服务预算。</p></section><section class="panel" hidden data-width="1100" data-height="1049"><h2>SDM 与序列优化 · 从窗口到会话、时间与长期记忆</h2><p>绿色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。</p><div class="downloads"><a href="05-sdm-sequence.svg" download>下载 SVG</a><a href="05-sdm-sequence.png" download>下载 PNG</a><a href="05-sdm-sequence.mmd">Mermaid 源码</a></div><div class="viewport"><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1049" viewBox="0 0 1100 1049" role="img" aria-labelledby="05-sdm-sequence-title 05-sdm-sequence-desc">
-<title id="05-sdm-sequence-title">SDM 与序列优化 · 从窗口到会话、时间与长期记忆</title><desc id="05-sdm-sequence-desc">绿色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。 历史位置与时间表达兴趣；展示位置影响观察机会。两类位置应分别建模，不能混用。</desc>
+</div></div><p class="note">K 增加 query 向量数，不等于业务 QPS 提升 K 倍；需比较同候选数和同服务预算。</p></section><section class="panel" hidden data-width="1100" data-height="1049"><h2>SDM 与序列优化 · 从窗口到会话、时间与长期记忆</h2><p>青色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。</p><div class="downloads"><a href="05-sdm-sequence.svg" download>下载 SVG</a><a href="05-sdm-sequence.png" download>下载 PNG</a><a href="05-sdm-sequence.mmd">Mermaid 源码</a></div><div class="viewport"><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1100" height="1049" viewBox="0 0 1100 1049" role="img" aria-labelledby="05-sdm-sequence-title 05-sdm-sequence-desc">
+<title id="05-sdm-sequence-title">SDM 与序列优化 · 从窗口到会话、时间与长期记忆</title><desc id="05-sdm-sequence-desc">青色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。 历史位置与时间表达兴趣；展示位置影响观察机会。两类位置应分别建模，不能混用。</desc>
 <style>text{font-family:'Noto Sans CJK SC',sans-serif}a:hover .node>rect{stroke-width:2}</style>
 <rect width="100%" height="100%" fill="#f8fafc"/>
 <text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">SDM 与序列优化 · 从窗口到会话、时间与长期记忆</text>
-<text x="40" y="65" font-size="13" fill="#475569">绿色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。</text>
-<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(302.368,112)">
+<text x="40" y="65" font-size="13" fill="#475569">青色新组件已通过接口与梯度测试；它们尚未接入既有训练器，不能声称已有升级效果。</text>
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 模型服务 smoke</text><circle cx="236" cy="91" r="5" fill="#087f8c"/><text x="250" y="96" font-size="13" fill="#475569">C 组件已测试</text><circle cx="428" cy="91" r="5" fill="#3b6dd8"/><text x="442" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="620" cy="91" r="5" fill="#c88718"/><text x="634" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="812" cy="91" r="5" fill="#82708e"/><text x="826" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(302.368,112)">
 
 <defs>
   <marker id="05-sdm-sequence-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
@@ -559,30 +559,30 @@ K 个 query / 合并去重" data-shape="rectangle">
   <rect x="148.48149999999998" y="40" width="198.301" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
   <text x="247.63199999999998" y="66.9" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="247.63199999999998" dy="-3.9000000000000012">当前 session_gate · L</tspan><tspan x="247.63199999999998" dy="16.900000000000002">固定窗口 / 既有合成实验</tspan></text>
 </g></a>
-<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L10" target="_blank" rel="noopener noreferrer"><g class="node" data-id="EVENTS" data-label="会话与时序特征组件 · L
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L10" target="_blank" rel="noopener noreferrer"><g class="node" data-id="EVENTS" data-label="会话与时序特征组件 · C
 先切会话 / 后截断 / 拒绝未来" data-shape="rectangle">
-  <rect x="136.99599999999998" y="145.8" width="221.272" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="247.63199999999998" y="172.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="247.63199999999998" dy="-3.9000000000000012">会话与时序特征组件 · L</tspan><tspan x="247.63199999999998" dy="16.900000000000002">先切会话 / 后截断 / 拒绝未来</tspan></text>
+  <rect x="136.99599999999998" y="145.8" width="221.272" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="247.63199999999998" y="172.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="247.63199999999998" dy="-3.9000000000000012">会话与时序特征组件 · C</tspan><tspan x="247.63199999999998" dy="16.900000000000002">先切会话 / 后截断 / 拒绝未来</tspan></text>
 </g></a>
-<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="TOKEN" data-label="时间与行为编码 · L
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="TOKEN" data-label="时间与行为编码 · C
 action / log-age / 时间偏置" data-shape="rectangle">
-  <rect x="149.22249999999997" y="251.60000000000002" width="196.819" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="247.63199999999995" y="278.5" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="247.63199999999995" dy="-3.9000000000000012">时间与行为编码 · L</tspan><tspan x="247.63199999999995" dy="16.900000000000002">action / log-age / 时间偏置</tspan></text>
+  <rect x="149.22249999999997" y="251.60000000000002" width="196.819" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="247.63199999999995" y="278.5" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="247.63199999999995" dy="-3.9000000000000012">时间与行为编码 · C</tspan><tspan x="247.63199999999995" dy="16.900000000000002">action / log-age / 时间偏置</tspan></text>
 </g></a>
-<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="SHORT" data-label="当前会话编码组件 · L
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="SHORT" data-label="当前会话编码组件 · C
 GRU / mask / 相关聚合" data-shape="rectangle">
-  <rect x="50.373999999999995" y="357.40000000000003" width="181.25799999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="141.003" y="384.3" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="141.003" dy="-3.9000000000000012">当前会话编码组件 · L</tspan><tspan x="141.003" dy="16.900000000000002">GRU / mask / 相关聚合</tspan></text>
+  <rect x="50.373999999999995" y="357.40000000000003" width="181.25799999999998" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="141.003" y="384.3" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="141.003" dy="-3.9000000000000012">当前会话编码组件 · C</tspan><tspan x="141.003" dy="16.900000000000002">GRU / mask / 相关聚合</tspan></text>
 </g></a>
-<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="LONG" data-label="历史会话聚合组件 · L
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="LONG" data-label="历史会话聚合组件 · C
 长期 mask / 衰减先验" data-shape="rectangle">
-  <rect x="263.63199999999995" y="357.40000000000003" width="181.25799999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="354.26099999999997" y="384.3" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="354.26099999999997" dy="-3.9000000000000012">历史会话聚合组件 · L</tspan><tspan x="354.26099999999997" dy="16.900000000000002">长期 mask / 衰减先验</tspan></text>
+  <rect x="263.63199999999995" y="357.40000000000003" width="181.25799999999998" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="354.26099999999997" y="384.3" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="354.26099999999997" dy="-3.9000000000000012">历史会话聚合组件 · C</tspan><tspan x="354.26099999999997" dy="16.900000000000002">长期 mask / 衰减先验</tspan></text>
 </g></a>
-<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="GATE" data-label="可用性门控组件 · L
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="GATE" data-label="可用性门控组件 · C
 空分支覆盖 / 全空回退" data-shape="rectangle">
-  <rect x="155.89149999999998" y="463.20000000000005" width="183.481" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="247.63199999999998" y="490.1" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="247.63199999999998" dy="-3.9000000000000012">可用性门控组件 · L</tspan><tspan x="247.63199999999998" dy="16.900000000000002">空分支覆盖 / 全空回退</tspan></text>
+  <rect x="155.89149999999998" y="463.20000000000005" width="183.481" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="247.63199999999998" y="490.1" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="247.63199999999998" dy="-3.9000000000000012">可用性门控组件 · C</tspan><tspan x="247.63199999999998" dy="16.900000000000002">空分支覆盖 / 全空回退</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="TRAIN" data-label="新模型训练接线 · P
 数据协议 / loss / 消融配置" data-shape="rectangle">
@@ -614,7 +614,7 @@ GRU / mask / 相关聚合" data-shape="rectangle">
 <rect width="100%" height="100%" fill="#f8fafc"/>
 <text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">位置消偏 · 从可识别日志到权重与训练验收</text>
 <text x="40" y="65" font-size="13" fill="#475569">本地权重/损失组件与 PBM 模拟已运行；真实 propensity 校准和业务模型接线仍是规划。</text>
-<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(167.89637499999998,112)">
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 模型服务 smoke</text><circle cx="236" cy="91" r="5" fill="#087f8c"/><text x="250" y="96" font-size="13" fill="#475569">C 组件已测试</text><circle cx="428" cy="91" r="5" fill="#3b6dd8"/><text x="442" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="620" cy="91" r="5" fill="#c88718"/><text x="634" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="812" cy="91" r="5" fill="#82708e"/><text x="826" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(167.89637499999998,112)">
 
 <defs>
   <marker id="06-position-debias-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
@@ -667,15 +667,15 @@ IPW / DLA / 继承损失" data-shape="rectangle">
   <rect x="148.29625" y="357.40000000000003" width="210.898" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
   <text x="253.74525" y="384.3" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="253.74525" dy="-3.9000000000000012">propensity sidecar · P</tspan><tspan x="253.74525" dy="16.900000000000002">检查概率 ≠ 策略概率 ≠ CTR</tspan></text>
 </g></a>
-<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/debias.py#L6" target="_blank" rel="noopener noreferrer"><g class="node" data-id="WEIGHT" data-label="权重组件 · L
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/debias.py#L6" target="_blank" rel="noopener noreferrer"><g class="node" data-id="WEIGHT" data-label="权重组件 · C
 零支持拒绝 / floor / clip / ESS" data-shape="rectangle">
-  <rect x="351.75225" y="463.20000000000005" width="214.60299999999998" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="459.05375" y="490.1" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="459.05375" dy="-3.9000000000000012">权重组件 · L</tspan><tspan x="459.05375" dy="16.900000000000002">零支持拒绝 / floor / clip / ESS</tspan></text>
+  <rect x="351.75225" y="463.20000000000005" width="214.60299999999998" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="459.05375" y="490.1" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="459.05375" dy="-3.9000000000000012">权重组件 · C</tspan><tspan x="459.05375" dy="16.900000000000002">零支持拒绝 / floor / clip / ESS</tspan></text>
 </g></a>
-<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/debias.py#L25" target="_blank" rel="noopener noreferrer"><g class="node" data-id="LOSS" data-label="正例 softmax 权重组件 · L
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/debias.py#L25" target="_blank" rel="noopener noreferrer"><g class="node" data-id="LOSS" data-label="正例 softmax 权重组件 · C
 IPS 或归一化正例目标" data-shape="rectangle">
-  <rect x="358.79175" y="569" width="200.524" height="53.800000000000004" rx="0" ry="0" fill="#e7f5ee" stroke="#16845b" stroke-width="0.75" />
-  <text x="459.05375" y="595.9" text-anchor="middle" font-size="13" font-weight="500" fill="#145239"><tspan x="459.05375" dy="-3.9000000000000012">正例 softmax 权重组件 · L</tspan><tspan x="459.05375" dy="16.900000000000002">IPS 或归一化正例目标</tspan></text>
+  <rect x="358.79175" y="569" width="200.524" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="459.05375" y="595.9" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="459.05375" dy="-3.9000000000000012">正例 softmax 权重组件 · C</tspan><tspan x="459.05375" dy="16.900000000000002">IPS 或归一化正例目标</tspan></text>
 </g></a>
 <a href="https://github.com/shiztong/-/blob/master/docs/recall/POSITION_DEBIAS.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="FIT" data-label="真实召回训练接线 · P
 当前六模型尚未接入位置权重" data-shape="rectangle">
@@ -701,7 +701,123 @@ IPS 或归一化正例目标" data-shape="rectangle">
 <text x="40" y="1017" font-size="12" fill="#475569">模拟结果不是业务收益。逆检查权重不替代 action propensity、采样校正或视频流序列评估。</text>
 <text x="40" y="1037" font-size="11" fill="#64748b">beautiful-mermaid 1.1.3 · 节点可点击查看代码或任务 · 连线表示能力依赖或数据流</text>
 </svg>
-</div></div><p class="note">模拟结果不是业务收益。逆检查权重不替代 action propensity、采样校正或视频流序列评估。</p></section><footer>离线文件，无 CDN、远程字体或预览服务器依赖。代码链接需要网络；PNG 包含中文字体渲染结果。源码与生成器保存在仓库。</footer></main><script>
+</div></div><p class="note">模拟结果不是业务收益。逆检查权重不替代 action propensity、采样校正或视频流序列评估。</p></section><section class="panel" hidden data-width="1572" data-height="877"><h2>统一交付依赖 · 模型之外的召回闭环</h2><p>从统一台账生成关键依赖：序列、消偏与采样、ANN、融合、状态、探索、实验共同验收。</p><div class="downloads"><a href="07-delivery-gates.svg" download>下载 SVG</a><a href="07-delivery-gates.png" download>下载 PNG</a><a href="07-delivery-gates.mmd">Mermaid 源码</a></div><div class="viewport"><div class="canvas"><svg xmlns="http://www.w3.org/2000/svg" width="1572" height="877" viewBox="0 0 1572 877" role="img" aria-labelledby="07-delivery-gates-title 07-delivery-gates-desc">
+<title id="07-delivery-gates-title">统一交付依赖 · 模型之外的召回闭环</title><desc id="07-delivery-gates-desc">从统一台账生成关键依赖：序列、消偏与采样、ANN、融合、状态、探索、实验共同验收。 仅显示关键能力；完整 31 项以 roadmap.json 为准。C 组件不能绕过 P 级业务数据和服务门槛。</desc>
+<style>text{font-family:'Noto Sans CJK SC',sans-serif}a:hover .node>rect{stroke-width:2}</style>
+<rect width="100%" height="100%" fill="#f8fafc"/>
+<text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">统一交付依赖 · 模型之外的召回闭环</text>
+<text x="40" y="65" font-size="13" fill="#475569">从统一台账生成关键依赖：序列、消偏与采样、ANN、融合、状态、探索、实验共同验收。</text>
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 模型服务 smoke</text><circle cx="236" cy="91" r="5" fill="#087f8c"/><text x="250" y="96" font-size="13" fill="#475569">C 组件已测试</text><circle cx="428" cy="91" r="5" fill="#3b6dd8"/><text x="442" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="620" cy="91" r="5" fill="#c88718"/><text x="634" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="812" cy="91" r="5" fill="#82708e"/><text x="826" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(0.41950000000019827,112)">
+
+<defs>
+  <marker id="07-delivery-gates-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">
+    <polygon points="0 0, 8 2.5, 0 5" fill="#475569" stroke="#475569" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+  <marker id="07-delivery-gates-arrowhead-start" markerWidth="8" markerHeight="5" refX="1" refY="2.5" orient="auto-start-reverse">
+    <polygon points="8 0, 0 2.5, 8 5" fill="#475569" stroke="#475569" stroke-width="0.75" stroke-linejoin="round" />
+  </marker>
+</defs>
+<polyline class="edge" data-from="D0" data-to="S1" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 145.07849999999996,129.8 145.07849999999996,269.6" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="S2" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 230.36937499999982,129.8 230.36937499999982,361.4000000000001" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="S1" data-to="S2" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="145.07850000000008,323.40000000000003 145.07850000000008,349.4000000000001 174.86612499999978,349.4000000000001 174.86612499999978,361.4000000000001" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="E0" data-to="S2" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="1327.8774666666664,323.40000000000003 1327.8774666666664,342.4000000000001 230.36937499999982,342.4000000000001 230.36937499999982,361.4000000000001" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="B1" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 679.1153749999999,129.8 679.1153749999999,425.40000000000003" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="B2" data-to="B1" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="639.1089333333332,323.40000000000003 639.1089333333332,441.40000000000003 679.1153749999999,441.40000000000003 679.1153749999999,425.40000000000003" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="E0" data-to="B1" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="1327.8774666666664,323.40000000000003 1327.8774666666664,342.4000000000001 679.1153749999999,342.4000000000001 679.1153749999999,425.40000000000003" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="B2" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 639.1089333333332,129.8 639.1089333333332,269.6" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="T0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 766.9301833333332,129.8 766.9301833333332,165.8" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="V0" data-to="F0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="888.8054333333331,323.40000000000003 888.8054333333331,374.40000000000003 1231.2382999999998,374.40000000000003 1231.2382999999998,425.40000000000003" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="E0" data-to="F0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="1327.8774666666664,323.40000000000003 1327.8774666666664,342.4000000000001 1231.2382999999998,342.4000000000001 1231.2382999999998,425.40000000000003" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="V0" data-to="I0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="888.8054333333331,323.40000000000003 888.8054333333331,374.40000000000003 461.4113749999999,374.40000000000003 461.4113749999999,425.40000000000003" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="V0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 888.8054333333331,129.8 888.8054333333331,269.6" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="C0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 1348.5397999999998,129.8 1348.5397999999998,517.2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="F0" data-to="C0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="1231.2382999999998,479.20000000000005 1231.2382999999998,498.20000000000005 1348.5397999999998,498.20000000000005 1348.5397999999998,517.2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="E0" data-to="C0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="1327.8774666666664,323.40000000000003 1327.8774666666664,342.4000000000001 1348.5397999999998,342.4000000000001 1348.5397999999998,517.2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="SF0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 980.1892999999998,129.8 980.1892999999998,425.40000000000003" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="V0" data-to="SF0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="888.8054333333331,323.40000000000003 888.8054333333331,374.40000000000003 980.1892999999998,374.40000000000003 980.1892999999998,425.40000000000003" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="F0" data-to="K0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="1231.2382999999998,479.20000000000005 1231.2382999999998,498.20000000000005 918.8155499999998,498.20000000000005 918.8155499999998,517.2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="I0" data-to="K0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="461.4113749999999,479.20000000000005 461.4113749999999,498.20000000000005 918.8155499999998,498.20000000000005 918.8155499999998,517.2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="V0" data-to="K0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="888.8054333333331,323.40000000000003 888.8054333333331,374.40000000000003 918.8155499999998,374.40000000000003 918.8155499999998,517.2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="SF0" data-to="K0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="980.1892999999998,479.20000000000005 980.1892999999998,498.20000000000005 918.8155499999998,498.20000000000005 918.8155499999998,517.2" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="E0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 1327.8774666666664,129.8 1327.8774666666664,269.6" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="D0" data-to="AB0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="818.1709333333332,93.80000000000001 818.1709333333332,129.8 1419.4134999999997,129.8 1419.4134999999997,609" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="E0" data-to="AB0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="1327.8774666666664,323.40000000000003 1327.8774666666664,342.4000000000001 1419.4134999999997,342.4000000000001 1419.4134999999997,609" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<polyline class="edge" data-from="K0" data-to="AB0" data-style="dotted" data-arrow-start="false" data-arrow-end="true" points="918.8155499999998,571 918.8155499999998,597 1363.5397499999997,597 1363.5397499999997,609" fill="none" stroke="#64748b" stroke-width="1" stroke-dasharray="4 4" marker-end="url(#07-delivery-gates-arrowhead)" />
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L10" target="_blank" rel="noopener noreferrer"><g class="node" data-id="S1" data-label="S1 真实会话与时间特征 · C
+P0 / 组件已测" data-shape="rectangle">
+  <rect x="40" y="269.6" width="210.15699999999995" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="145.07849999999996" y="296.5" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="145.07849999999996" dy="-3.9000000000000012">S1 真实会话与时间特征 · C</tspan><tspan x="145.07849999999996" dy="16.900000000000002">P0 / 组件已测</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/sequence.py#L43" target="_blank" rel="noopener noreferrer"><g class="node" data-id="S2" data-label="S2 时间/行为/可用性门控 · C
+P1 / 组件已测" data-shape="rectangle">
+  <rect x="119.3628749999998" y="361.4000000000001" width="222.013" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="230.36937499999982" y="388.30000000000007" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="230.36937499999982" dy="-3.9000000000000012">S2 时间/行为/可用性门控 · C</tspan><tspan x="230.36937499999982" dy="16.900000000000002">P1 / 组件已测</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/debias.py#L25" target="_blank" rel="noopener noreferrer"><g class="node" data-id="B1" data-label="B1 检查概率正例权重 · C
+P0 / 组件已测" data-shape="rectangle">
+  <rect x="581.4468749999999" y="425.40000000000003" width="195.33699999999996" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="679.1153749999999" y="452.3" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="679.1153749999999" dy="-3.9000000000000012">B1 检查概率正例权重 · C</tspan><tspan x="679.1153749999999" dy="16.900000000000002">P0 / 组件已测</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/POSITION_DEBIAS.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="B2" data-label="B2 真实位置识别与校准 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="531.8074333333332" y="269.6" width="214.60299999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="639.1089333333332" y="296.5" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="639.1089333333332" dy="-3.9000000000000012">B2 真实位置识别与校准 · P</tspan><tspan x="639.1089333333332" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/BEST_PRACTICE_REVIEW.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="D0" data-label="D0 曝光/标签/时点数据合同 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="699.7544333333332" y="40" width="236.833" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="818.1709333333332" y="66.9" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="818.1709333333332" dy="-3.9000000000000012">D0 曝光/标签/时点数据合同 · P</tspan><tspan x="818.1709333333332" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/BEST_PRACTICE_REVIEW.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="T0" data-label="T0 规模化采样训练 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="674.4486833333332" y="165.8" width="184.96299999999997" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="766.9301833333332" y="192.70000000000002" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="766.9301833333332" dy="-3.9000000000000012">T0 规模化采样训练 · P</tspan><tspan x="766.9301833333332" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/recommender/retrieval/fusion.py#L23" target="_blank" rel="noopener noreferrer"><g class="node" data-id="F0" data-label="F0 候选融合与来源追踪 · C
+P0 / 组件已测" data-shape="rectangle">
+  <rect x="1123.9367999999997" y="425.40000000000003" width="214.60299999999998" height="53.800000000000004" rx="0" ry="0" fill="#e1f4f5" stroke="#087f8c" stroke-width="0.75" />
+  <text x="1231.2382999999998" y="452.3" text-anchor="middle" font-size="13" font-weight="500" fill="#075c65"><tspan x="1231.2382999999998" dy="-3.9000000000000012">F0 候选融合与来源追踪 · C</tspan><tspan x="1231.2382999999998" dy="16.900000000000002">P0 / 组件已测</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/BEST_PRACTICE_REVIEW.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="I0" data-label="I0 ANN与增量索引 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="373.37587499999995" y="425.40000000000003" width="176.07099999999997" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="461.4113749999999" y="452.3" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="461.4113749999999" dy="-3.9000000000000012">I0 ANN与增量索引 · P</tspan><tspan x="461.4113749999999" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/BEST_PRACTICE_REVIEW.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="V0" data-label="V0 资格/版本/删除/回滚 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="783.3564333333331" y="269.6" width="210.898" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="888.8054333333331" y="296.5" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="888.8054333333331" dy="-3.9000000000000012">V0 资格/版本/删除/回滚 · P</tspan><tspan x="888.8054333333331" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/BEST_PRACTICE_REVIEW.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="C0" data-label="C0 新用户/新内容探索 · P
+P1 / 待建设" data-shape="rectangle">
+  <rect x="1246.7957999999999" y="517.2" width="203.488" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="1348.5397999999998" y="544.1" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="1348.5397999999998" dy="-3.9000000000000012">C0 新用户/新内容探索 · P</tspan><tspan x="1348.5397999999998" dy="16.900000000000002">P1 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/SDM_SEQUENCE.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="SF0" data-label="SF0 实时状态与特征服务 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="868.4417999999998" y="425.40000000000003" width="223.49499999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="980.1892999999998" y="452.3" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="980.1892999999998" dy="-3.9000000000000012">SF0 实时状态与特征服务 · P</tspan><tspan x="980.1892999999998" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/BEST_PRACTICE_REVIEW.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="K0" data-label="K0 在线召回编排与降级 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="811.5140499999998" y="517.2" width="214.60299999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="918.8155499999998" y="544.1" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="918.8155499999998" dy="-3.9000000000000012">K0 在线召回编排与降级 · P</tspan><tspan x="918.8155499999998" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recall/BEST_PRACTICE_REVIEW.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="E0" data-label="E0 真实候选评测与归因 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="1220.5759666666663" y="269.6" width="214.60299999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="1327.8774666666664" y="296.5" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="1327.8774666666664" dy="-3.9000000000000012">E0 真实候选评测与归因 · P</tspan><tspan x="1327.8774666666664" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+<a href="https://github.com/shiztong/-/blob/master/docs/recommendation/16-value-and-experiments.md" target="_blank" rel="noopener noreferrer"><g class="node" data-id="AB0" data-label="AB0 线上实验与商业验收 · P
+P0 / 待建设" data-shape="rectangle">
+  <rect x="1307.6659999999997" y="609" width="223.49499999999998" height="53.800000000000004" rx="0" ry="0" fill="#fff3dc" stroke="#c88718" stroke-width="0.75" />
+  <text x="1419.4134999999997" y="635.9" text-anchor="middle" font-size="13" font-weight="500" fill="#785014"><tspan x="1419.4134999999997" dy="-3.9000000000000012">AB0 线上实验与商业验收 · P</tspan><tspan x="1419.4134999999997" dy="16.900000000000002">P0 / 待建设</tspan></text>
+</g></a>
+</g>
+<text x="40" y="845" font-size="12" fill="#475569">仅显示关键能力；完整 31 项以 roadmap.json 为准。C 组件不能绕过 P 级业务数据和服务门槛。</text>
+<text x="40" y="865" font-size="11" fill="#64748b">beautiful-mermaid 1.1.3 · 节点可点击查看代码或任务 · 连线表示能力依赖或数据流</text>
+</svg>
+</div></div><p class="note">仅显示关键能力；完整 31 项以 roadmap.json 为准。C 组件不能绕过 P 级业务数据和服务门槛。</p></section><footer>离线文件，无 CDN、远程字体或预览服务器依赖。代码链接需要网络；PNG 包含中文字体渲染结果。源码与生成器保存在仓库。</footer></main><script>
 const panels=[...document.querySelectorAll('.panel')],tabs=[...document.querySelectorAll('.tab')];let active=0;
 const zoom=document.querySelector('#zoom'),label=document.querySelector('#scale');
 function apply(value){const panel=panels[active];zoom.value=value;label.value=Math.round(value)+'%';panel.querySelector('.canvas>svg').style.width=(Number(panel.dataset.width)*value/100)+'px';}

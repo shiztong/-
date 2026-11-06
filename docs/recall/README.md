@@ -2,7 +2,9 @@
 
 这是一份工程执行表。每条路线都标记代码是否已经存在、是否实际运行、收益数字的来源，以及下一步交付。**本地已实现六个可训练参考模型**，不是原论文精确复现；已完成的真实训练结果见 [运行报告](BENCHMARK.md)，模型差异与全套命令见 [实现手册](IMPLEMENTATION.md)。
 
-状态：**L**=本地实现并运行；**E**=固定版本外部源码已核验、未在本环境复现；**P**=规划项、核心链路未完成；**X**=来源不明或候选代码不足以支持声称。不能把 E/P/X 标记成已上线。
+状态：**L**=本地模型/服务已 smoke；**C**=组件已通过测试，尚未完成对应业务接线；**E**=固定版本外部源码已核验、未在本环境复现；**P**=规划项、核心链路未完成；**X**=来源不明或候选代码不足以支持声称。L 也只覆盖已注明的合成或教学场景，任何状态均不自动表示生产就绪。
+
+**最终审查入口**：[业界实践反思、缺口与推进顺序](BEST_PRACTICE_REVIEW.md)。下方统一台账包含模型、SDM/消偏专题及数据/采样/ANN/融合/探索/服务/实验依赖；[交付依赖图](diagrams/07-delivery-gates.svg) 从同一 JSON 生成，避免文档与图的完成度漂移。
 
 收益口径：**PUB**=作者公开报告；**RUN**=本仓库合成数据训练实测；**TARGET**=建议立项门槛，待业务确认，不是预测。无真实业务基线时不编造预期线上百分比。
 
@@ -10,11 +12,11 @@
 
 ## 1. 完整演进树与依赖
 
-使用 **beautiful-mermaid** 绘制的路线图如下。绿色为本地已运行，蓝色为外部源码已核验，橙色为规划，紫色为证据不足；各节点可在 SVG/离线图册中点击查看代码或任务。
+使用 **beautiful-mermaid** 绘制的路线图如下。绿色为本地模型/服务 smoke，青色为组件已测，蓝色为外部源码已核验，橙色为规划，紫色为证据不足；各节点可在 SVG/离线图册中点击查看代码或任务。
 
 ![召回演进路线与落地状态](diagrams/01-evolution.svg)
 
-[六图导航与离线图册](diagrams/README.md) · [当前训练与查询数据流](diagrams/02-current-dataflow.svg) · [生产目标数据流](diagrams/03-production-target.svg) · [单向量与多兴趣](diagrams/04-multi-interest-flow.svg) · [SDM 优化](diagrams/05-sdm-sequence.svg) · [位置消偏](diagrams/06-position-debias.svg)
+[七图导航与离线图册](diagrams/README.md) · [当前训练与查询数据流](diagrams/02-current-dataflow.svg) · [生产目标数据流](diagrams/03-production-target.svg) · [单向量与多兴趣](diagrams/04-multi-interest-flow.svg) · [SDM 优化](diagrams/05-sdm-sequence.svg) · [位置消偏](diagrams/06-position-debias.svg) · [交付依赖](diagrams/07-delivery-gates.svg)
 
 <details>
 <summary>查看文本版演进树</summary>
@@ -36,13 +38,61 @@ R0 热门/关注/协同：建立最低可用覆盖与回退
 
 横向增强：SE 字段加权；具体 SSL 目标；实时状态与增量索引
 持续约束：准入、已看过滤、版本一致、同预算评价、回滚
+贯穿主线：D0 数据 → T0 采样；V0 资格版本 → I0 ANN；F0 融合 + SF0 状态 → K0 编排 → AB0 实验
+SDM 专项：S1 会话特征 → S2 编码组件 → 真实训练验收
+消偏专项：B2 识别校准 → B1 权重组件 → 与 SDM 做控制变量实验
 ```
 
 </details>
 
 树表示可选升级和依赖，不是公司必须逐个替换的年代顺序。SDM 与多兴趣解决不同问题，可以并行；图、语义与协同可以长期作为不同通道共存。
 
-## 2. 逐路标执行总表
+## 2. 统一交付与依赖台账
+
+<!-- RECALL-LEDGER:START -->
+
+本表由 [roadmap.json](../../configs/recall/roadmap.json) 自动生成，是当前交付状态台账。
+**L/C/E 均不表示生产就绪**；依赖列是进入真实业务的验收依赖，不是运行 toy 代码的依赖。
+
+| ID / 优先级 | 能力 / 当前状态 | 已有证据与适用范围 | 核心代码 | 上线依赖 → 退出门槛 |
+|---|---|---|---|---|
+| R0 / P1 | [协同与热门回退](BEST_PRACTICE_REVIEW.md) / **L 模型/服务 smoke** | 教学服务；无真实业务验证 | [`Recommender`](../../recommender/engine.py#L7) | D0, V0, E0, AB0 → 覆盖与降级效果可追踪 |
+| R1 / P1 | [归一化 ID-MF](BENCHMARK.md) / **L 模型/服务 smoke** | 合成数据训练/精确检索；非原厂复现 | [`MatrixFactorization`](../../recommender/retrieval/models.py#L95) | D0, V0, E0, AB0 → 真实标签、同预算、上线护栏与成本通过 |
+| R2 / P1 | [池化双塔](BENCHMARK.md) / **L 模型/服务 smoke** | 合成数据训练/精确检索；非原厂复现 | [`PooledTwoTower`](../../recommender/retrieval/models.py#L100) | D0, V0, E0, AB0 → 真实标签、同预算、上线护栏与成本通过 |
+| R3 / P1 | [SDM 风格固定窗口](BENCHMARK.md) / **L 模型/服务 smoke** | 合成数据训练/精确检索；非原厂复现 | [`SessionGateRetriever`](../../recommender/retrieval/models.py#L112) | D0, V0, E0, AB0 → 真实标签、同预算、上线护栏与成本通过 |
+| R4 / P1 | [MIND 参考](BENCHMARK.md) / **L 模型/服务 smoke** | 合成数据训练/精确检索；非原厂复现 | [`MINDReference`](../../recommender/retrieval/models.py#L216) | D0, V0, E0, AB0 → 真实标签、同预算、上线护栏与成本通过 |
+| R5a / P1 | [ComiRec-SA 参考](BENCHMARK.md) / **L 模型/服务 smoke** | 合成数据训练/精确检索；非原厂复现 | [`ComiRecSAReference`](../../recommender/retrieval/models.py#L162) | D0, V0, E0, AB0 → 真实标签、同预算、上线护栏与成本通过 |
+| R5b / P1 | [ComiRec-DR 参考](BENCHMARK.md) / **L 模型/服务 smoke** | 合成数据训练/精确检索；非原厂复现 | [`ComiRecDRReference`](../../recommender/retrieval/models.py#L221) | D0, V0, E0, AB0 → 真实标签、同预算、上线护栏与成本通过 |
+| S1 / P0 | [真实会话与时间特征](SDM_SEQUENCE.md) / **C 组件已测** | 组件已测；未接六模型训练器 | [`build_sequence_features`](../../recommender/retrieval/sequence.py#L10) | D0 → 请求前可见、session与时间单位审计 |
+| S2 / P1 | [时间/行为/可用性门控](SDM_SEQUENCE.md) / **C 组件已测** | 组件已测；无升级效果实验 | [`TimeAwareSessionEncoder`](../../recommender/retrieval/sequence.py#L43) | D0, S1, E0 → 原/新编码器控制变量实验 |
+| B1 / P0 | [检查概率正例权重](POSITION_DEBIAS.md) / **C 组件已测** | 组件与PBM模拟；未接业务训练 | [`positive_weighted_softmax`](../../recommender/retrieval/debias.py#L25) | D0, B2, E0 → 支持集、尺度、ESS、clip敏感性 |
+| B2 / P0 | [真实位置识别与校准](POSITION_DEBIAS.md) / **P 待建设** | 缺业务随机/可识别校准数据 | 待建设；不标记为已实现 | D0 → 区分检查率、assignment与action概率 |
+| R6 / P1 | [内容语义/多模态冷启动](README.md) / **P 待建设** | 本地类别特征不等于多模态 | 待建设；不标记为已实现 | D0, T0, I0, C0 → 零曝光切片与整体有效消费 |
+| R7a / P2 | [SGL 图协同](../recommendation/22-model-by-model-evidence-audit.md) / **E 外部源码** | 外部作者实现已读、未复现 | [固定外部源码](https://github.com/wujcan/SGL/blob/58fe93149ca6fb733639f556343c41f12206ba55/model/general_recommender/SGL.py) | D0, T0, I0, E0 → 同图/同采样/同预算基线 |
+| R7b / P2 | [EGES 候选复现](../recommendation/22-model-by-model-evidence-audit.md) / **X 证据不接受** | 所读候选的侧信息训练链不完整 | [固定外部源码](https://github.com/wangzhegeek/EGES/blob/2b3763c646524f18bcd129c01296f914c5cfdd01/gpu_process/EGES_module.py) | — → 找到或实现可验证的侧信息loss |
+| R8 / P1 | [多目标与跨层蒸馏](README.md) / **P 待建设** | 尚无广候选教师与KD接线 | 待建设；不标记为已实现 | D0, T0, E0 → 最终优质候选增量而非仅教师一致 |
+| R9 / P2 | [HSTU/可扩展长序列](../recommendation/13-industry-evidence.md) / **E 外部源码** | 官方源码已读；无本地训练 | [固定外部源码](https://github.com/facebookresearch/generative-recommenders/blob/b8e6ff07c5d4c3354b0807ead76b74d771557fd7/generative_recommenders/research/modeling/sequential/hstu.py) | D0, T0, I0, E0 → 相同数据/长度/预算前沿改善 |
+| R10 / P2 | [生成式增量召回](README.md) / **P 待建设** | 语义ID/生成/解析三个接口未实现 | 待建设；不标记为已实现 | D0, I0, V0, E0, C0 → 独有候选覆盖与解码成本达标 |
+| D0 / P0 | [曝光/标签/时点数据合同](BEST_PRACTICE_REVIEW.md) / **P 待建设** | 仅有合成事件，缺真实生产日志 | 待建设；不标记为已实现 | — → 曝光机会、成熟标签、ingest/as-of可回放 |
+| T0 / P0 | [规模化采样训练](BEST_PRACTICE_REVIEW.md) / **P 待建设** | 当前全库CE；无采样概率与假负例流水线 | 待建设；不标记为已实现 | D0 → 采样纠正、重复正例、困难负例审计 |
+| F0 / P0 | [候选融合与来源追踪](BEST_PRACTICE_REVIEW.md) / **C 组件已测** | RRF组件已测并做导出查询smoke；非线上服务 | [`fuse_candidates`](../../recommender/retrieval/fusion.py#L23) | V0, E0 → 去重/准入/owner配额/缺量与退化可测 |
+| I0 / P0 | [ANN与增量索引](BEST_PRACTICE_REVIEW.md) / **P 待建设** | 当前index.pt仅精确向量表 | 待建设；不标记为已实现 | V0 → exact→ANN损失、过滤补量、新鲜度、尾延迟 |
+| V0 / P0 | [资格/版本/删除/回滚](BEST_PRACTICE_REVIEW.md) / **P 待建设** | 已有checkpoint校验组件；缺全链路协议 | 待建设；不标记为已实现 | D0 → 强屏蔽/过期/删除不漏，模型索引一致回滚 |
+| C0 / P1 | [新用户/新内容探索](BEST_PRACTICE_REVIEW.md) / **P 待建设** | 暂无OOV全链路与分层探索策略 | 待建设；不标记为已实现 | D0, F0, E0 → 探索概率、质量保护、发现与长期反馈 |
+| SF0 / P0 | [实时状态与特征服务](SDM_SEQUENCE.md) / **P 待建设** | 离线序列组件不等于在线状态服务 | 待建设；不标记为已实现 | D0, V0 → 重复/迟到/重置/删除、反馈到可用延迟 |
+| K0 / P0 | [在线召回编排与降级](BEST_PRACTICE_REVIEW.md) / **P 待建设** | 当前仅CPU命令行查询 | 待建设；不标记为已实现 | F0, I0, V0, SF0 → 请求deadline、隔离、降级和P99压测 |
+| E0 / P0 | [真实候选评测与归因](BEST_PRACTICE_REVIEW.md) / **P 待建设** | 有合成指标；无真实全链路回放 | 待建设；不标记为已实现 | D0 → 召回/过滤/融合/粗排损失可定位 |
+| AB0 / P0 | [线上实验与商业验收](../recommendation/16-value-and-experiments.md) / **P 待建设** | 无真实用户随机实验 | 待建设；不标记为已实现 | D0, E0, K0 → 独立用户功效、长期护栏、增量成本覆盖 |
+| ECO0 / P1 | [供给与长期生态](BEST_PRACTICE_REVIEW.md) / **P 待建设** | 无作者/主题集中度与探索生态监控 | 待建设；不标记为已实现 | D0, C0, AB0 → 优质新内容发现、供给质量与用户体验 |
+| E1 / P2 | [SE 字段重权](../recommendation/22-model-by-model-evidence-audit.md) / **E 外部源码** | 外部组件已读，未接本地塔 | [固定外部源码](https://github.com/shenweichen/DeepCTR/blob/1b5fe40e158d1ee6af8b1d9df217a5ed5aea9136/deepctr/layers/interaction.py#L1067) | D0, T0, E0 → 明确底座/目标/来源后，做正交消融与成本检查 |
+| E2 / P2 | [SSL 正交训练增强](../recommendation/22-model-by-model-evidence-audit.md) / **E 外部源码** | 具体SGL已读；泛化到其他底座待验证 | [固定外部源码](https://github.com/wujcan/SGL/blob/58fe93149ca6fb733639f556343c41f12206ba55/model/general_recommender/SGL.py) | D0, T0, E0 → 明确底座/目标/来源后，做正交消融与成本检查 |
+| XREC / P2 | [动态兴趣 X-Rec 名称](../recommendation/22-model-by-model-evidence-audit.md) / **X 证据不接受** | 已定位同名是解释模型，非所述动态兴趣召回 | [固定外部源码](https://github.com/HKUDS/XRec/tree/8b73f3f04f6dde71cd1339654b087bac0e2d80d5) | — → 提供唯一论文标题与可信实现 |
+
+SDM/序列的 S1/S2、位置消偏的 B1/B2 已进入同一台账；当前 C 组件尚未接入六模型训练器。
+
+<!-- RECALL-LEDGER:END -->
+
+### 模型机制、收益依据与代码补充
 
 | 路标 / 状态 | 解决的问题 / 触发条件 | 核心代码，点击可定位 | 收益依据与下一步验收 |
 |---|---|---|---|
@@ -53,10 +103,10 @@ R0 热门/关注/协同：建立最低可用覆盖与回退
 | R4 MIND 参考 / L | 单向量兴趣覆盖不足 | [`MINDReference`](../../recommender/retrieval/models.py#L216)、[`RoutingReference`](../../recommender/retrieval/models.py#L180) | RUN；未填原论文未核验收益。TARGET：同检索预算有效兴趣覆盖增益，头不过度塌缩 |
 | R5a ComiRec-SA 参考 / L | 需要多兴趣且不想用迭代路由 | [`ComiRecSAReference`](../../recommender/retrieval/models.py#L162) | RUN；不保证优于 R4。需位置消融、兴趣贡献、聚合质量与成本评价 |
 | R5b ComiRec-DR 参考 / L | 路由及位置相关投影有潜在增量 | [`ComiRecDRReference`](../../recommender/retrieval/models.py#L221)、共享 routing | RUN；不保证优于 SA。需控制投影参数规模、显存及有效候选数 |
-| R6 内容语义 / 部分 L + P | 新内容缺协同、长尾覆盖差 | 本地 `ItemTower` 只支持类别特征实验；[编码合同](#r6-内容语义升级合同) | **未实现多模态编码器**。TARGET：零/低曝光内容有效消费改善；语义相似不是消费收益 |
+| R6 内容语义 / P | 新内容缺协同、长尾覆盖差 | 本地 `ItemTower` 的类别字段接口不等于语义编码器；[编码合同](#r6-内容语义升级合同) | **未实现多模态编码器**。TARGET：零/低曝光内容有效消费改善；语义相似不是消费收益 |
 | R7a 图 + SSL / E | 高阶协同/长尾与表征鲁棒性 | [SGL 核心类与 loss](https://github.com/wujcan/SGL/blob/58fe93149ca6fb733639f556343c41f12206ba55/model/general_recommender/SGL.py) | 作者实现已读、未跑；收益待相同图与底座复现，不引用未核验百分比 |
 | R7b EGES 物品图 / X | 物品会话图与侧信息融合 | [候选第三方 `EGES.train_step`](https://github.com/wangzhegeek/EGES/blob/2b3763c646524f18bcd129c01296f914c5cfdd01/gpu_process/EGES_module.py) | **该候选不作为忠实复现**：所读训练 loss 仅 Node2Vec，未通过侧信息融合前向；需另找或实现可信版本 |
-| R8 蒸馏/多目标融合 / P | 精排好内容在召回缺失、各层目标错位 | 本地扩展点 [`Retriever.loss`](../../recommender/retrieval/models.py#L71)；当前无 KD 实现 | TARGET：固定预算保留最终高价值候选；先扩大教师评分支持集，防止复制偏差 |
+| R8 多目标召回/精排蒸馏 / P | 精排好内容在召回缺失、各层目标错位 | 本地扩展点 [`Retriever.loss`](../../recommender/retrieval/models.py#L71)；当前无 KD 实现；候选融合单列 F0 | TARGET：固定预算保留最终高价值候选；先扩大教师评分支持集，防止复制偏差 |
 | R9 HSTU / E | 长序列的价值已获证据，现有结构成本受限 | [官方 HSTU 核心实现](https://github.com/facebookresearch/generative-recommenders/blob/b8e6ff07c5d4c3354b0807ead76b74d771557fd7/generative_recommenders/research/modeling/sequential/hstu.py) | PUB：ML-1M HR@10 0.2853→0.3097，约 +8.55%；不是短视频收益，large 配置另有容量差异 |
 | R10 生成式语义ID / P | 底座、编码和实时内容接入较成熟 | [待实现接口](#r10-生成式增量通道合同)；本轮未定位可承诺复现的原厂核心代码 | 无本项目可靠收益预测。先做 ANN 之外的独有候选贡献，不直接替换全链路 |
 | E1 SE / E，组件 | 存在多个有用字段且重要性随用户变化 | [具名实现 `SENETLayer`](https://github.com/shenweichen/DeepCTR/blob/1b5fe40e158d1ee6af8b1d9df217a5ed5aea9136/deepctr/layers/interaction.py#L1067) | 非独立主干；该实现是 ReLU 重权，不要假定 sigmoid。额外参数与服务开销需实测 |
@@ -109,10 +159,10 @@ python3 -m venv /workspace/recsys-venv
 令 `C0` 为当前有效消费正例覆盖率，`q` 为新路在线下回放中对未覆盖正例的补回比例。相同最终候选预算下的情景估计：
 
 \[
-C_1=C_0+(1-C_0)q.
+C_1=C_0+(1-C_0)q-d.
 \]
 
-例：**假设** `C0=0.60,q=0.10`，则 `C1=0.64`，绝对增加 4 个百分点、相对 +6.67%。这不是某模型真实预期，因为 q 必须实测，且预算竞争可能挤掉旧候选。
+`d` 是固定候选预算下被挤出的旧有效正例比例。例：**假设** `C0=0.60,q=0.10,d=0`，则 `C1=0.64`，绝对增加 4 个百分点、相对 +6.67%；若 `d=0.03`，净增量只有 1 个百分点。q 与 d 均须实测，该例不是某模型真实预期。
 
 从候选覆盖到线上消费还受粗精排保留、曝光选择、位置和用户反馈影响；不能将 +6.67% Recall 换算成 +6.67% 时长。应使用教师回放、独有高价值候选与小流量实验逐步更新估计，给出区间和失败情景。
 
@@ -164,3 +214,16 @@ C_1=C_0+(1-C_0)q.
 ## 6. 上线前的终点门槛
 
 当前代码的终点是**小目录离线实验与精确查询**。工业上线还需要 sampled loss、分布式稀疏表、ANN、在线特征、实时索引、服务压测、隐私与准入、A/B 和回滚。每条路线必须在总表保留未完成项，不用“核心模型可训练”代替整条生产链路已具备。
+
+## 7. 路标一致性与最后审查
+
+`configs/recall/roadmap.json` 记录交付状态、证据范围、代码、业务采用依赖和退出门槛。修改状态或依赖后执行：
+
+```bash
+python3 -m tools.check_recall_roadmap --write
+npm --prefix tools/diagrams run render
+python3 -m tools.check_recall_roadmap
+npm --prefix tools/diagrams run check
+```
+
+检查器校验代码符号、依赖 DAG、证据与状态匹配、自动总表及关联图节点。它没有把所有 L/C 自动判为 production-ready，也不通过写文档清除未完成工程。最终反思、优先级、候选融合和更正后的收益估计详见 [BEST_PRACTICE_REVIEW.md](BEST_PRACTICE_REVIEW.md)。

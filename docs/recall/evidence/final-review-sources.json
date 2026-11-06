@@ -1,0 +1,42 @@
+[
+  {
+    "id": "tfrs-task",
+    "repository": "tensorflow/recommenders",
+    "commit": "a8a90aee3f0b470cda96d47e26de99eedb7fc730",
+    "path": "tensorflow_recommenders/tasks/retrieval.py",
+    "url": "https://raw.githubusercontent.com/tensorflow/recommenders/a8a90aee3f0b470cda96d47e26de99eedb7fc730/tensorflow_recommenders/tasks/retrieval.py",
+    "sha256": "7c53f1447e93ade58fe32683d9a0089551e4fdb9a7844f128cf3befc7c30b8a2",
+    "accessed_date": "2026-11-06",
+    "verification": "source inspected; upstream training/index performance not reproduced"
+  },
+  {
+    "id": "tfrs-loss",
+    "repository": "tensorflow/recommenders",
+    "commit": "a8a90aee3f0b470cda96d47e26de99eedb7fc730",
+    "path": "tensorflow_recommenders/layers/loss.py",
+    "url": "https://raw.githubusercontent.com/tensorflow/recommenders/a8a90aee3f0b470cda96d47e26de99eedb7fc730/tensorflow_recommenders/layers/loss.py",
+    "sha256": "8c46d776ab7257ecc2c942eee2da7582ebfc654cb9aa3d3f6664f93658527c97",
+    "accessed_date": "2026-11-06",
+    "verification": "source inspected; upstream training/index performance not reproduced"
+  },
+  {
+    "id": "faiss-readme",
+    "repository": "facebookresearch/faiss",
+    "commit": "0a6f936730175a4be0c3475359bdb12b39222099",
+    "path": "README.md",
+    "url": "https://raw.githubusercontent.com/facebookresearch/faiss/0a6f936730175a4be0c3475359bdb12b39222099/README.md",
+    "sha256": "24679e12982711be6b122268569b7865a14feccc8a0dd9688e15b58e95c35a75",
+    "accessed_date": "2026-11-06",
+    "verification": "source inspected; upstream training/index performance not reproduced"
+  },
+  {
+    "id": "faiss-index",
+    "repository": "facebookresearch/faiss",
+    "commit": "0a6f936730175a4be0c3475359bdb12b39222099",
+    "path": "faiss/Index.h",
+    "url": "https://raw.githubusercontent.com/facebookresearch/faiss/0a6f936730175a4be0c3475359bdb12b39222099/faiss/Index.h",
+    "sha256": "68e304bcfdd0fd3ef9ed8a48223e34e4ee44a25076014450321be2ec5b8452a0",
+    "accessed_date": "2026-11-06",
+    "verification": "source inspected; upstream training/index performance not reproduced"
+  }
+]

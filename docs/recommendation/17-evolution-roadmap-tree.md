@@ -2,6 +2,8 @@
 
 当前代码完成度及逐节点源码标记已迁移至 [召回执行总表](../recall/README.md)。本章保留技术分类与历史路标，下面关于仅有 A1 教学程序的状态描述属于新增深度参考实现之前的审查记录。
 
+召回的模型、SDM/序列、位置消偏与数据/采样/ANN/融合/探索/服务/实验现已纳入同一份 **31 项交付台账**；采用依赖与验收门槛见总表及 [交付依赖图](../recall/diagrams/07-delivery-gates.svg)，最终差缺审查见 [最佳实践审查](../recall/BEST_PRACTICE_REVIEW.md)。本章的 A–F 是跨链路分类，执行台账的 R/S/B/D 等是能力编号，两者不代表同一状态体系。
+
 本章回答“从哪里发展而来、现在有哪些并行分支、下一步往哪里走”，而非重复当前模型配置。配套阅读：[召回演进](18-retrieval-evolution.md)、[粗排精排演进](19-ranking-evolution.md)、[重排与基础能力演进](20-decision-feature-evolution.md)、[分场景路线](21-scene-adoption-roadmap.md)。
 
 ## 1. 如何阅读这棵树

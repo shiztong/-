@@ -1,0 +1,201 @@
+{
+  "warning": "Fuse actually exported synthetic-model queries; not a production effect experiment.",
+  "user_id": 1,
+  "history": [
+    1,
+    2,
+    3
+  ],
+  "per_channel_top_k": 20,
+  "result": {
+    "candidates": [
+      {
+        "item_id": 146,
+        "fusion_score": 0.01639344262295082,
+        "sources": [
+          {
+            "channel": "pooled",
+            "rank": 1,
+            "raw_score": 0.5057398676872253,
+            "contribution": 0.01639344262295082
+          }
+        ],
+        "selected_by": "pooled"
+      },
+      {
+        "item_id": 57,
+        "fusion_score": 0.01639344262295082,
+        "sources": [
+          {
+            "channel": "session_gate",
+            "rank": 1,
+            "raw_score": 0.40439024567604065,
+            "contribution": 0.01639344262295082
+          }
+        ],
+        "selected_by": "session_gate"
+      },
+      {
+        "item_id": 95,
+        "fusion_score": 0.01639344262295082,
+        "sources": [
+          {
+            "channel": "mind_ref",
+            "rank": 1,
+            "raw_score": 0.5377246737480164,
+            "contribution": 0.01639344262295082
+          }
+        ],
+        "selected_by": "mind_ref"
+      },
+      {
+        "item_id": 92,
+        "fusion_score": 0.016129032258064516,
+        "sources": [
+          {
+            "channel": "pooled",
+            "rank": 2,
+            "raw_score": 0.4689478874206543,
+            "contribution": 0.016129032258064516
+          }
+        ],
+        "selected_by": "pooled"
+      },
+      {
+        "item_id": 171,
+        "fusion_score": 0.016129032258064516,
+        "sources": [
+          {
+            "channel": "session_gate",
+            "rank": 2,
+            "raw_score": 0.3947626054286957,
+            "contribution": 0.016129032258064516
+          }
+        ],
+        "selected_by": "session_gate"
+      },
+      {
+        "item_id": 221,
+        "fusion_score": 0.016129032258064516,
+        "sources": [
+          {
+            "channel": "mind_ref",
+            "rank": 2,
+            "raw_score": 0.44664061069488525,
+            "contribution": 0.016129032258064516
+          }
+        ],
+        "selected_by": "mind_ref"
+      },
+      {
+        "item_id": 9,
+        "fusion_score": 0.031009615384615385,
+        "sources": [
+          {
+            "channel": "session_gate",
+            "rank": 4,
+            "raw_score": 0.3612792193889618,
+            "contribution": 0.015625
+          },
+          {
+            "channel": "mind_ref",
+            "rank": 5,
+            "raw_score": 0.35581865906715393,
+            "contribution": 0.015384615384615385
+          }
+        ],
+        "selected_by": "session_gate"
+      },
+      {
+        "item_id": 111,
+        "fusion_score": 0.030536130536130537,
+        "sources": [
+          {
+            "channel": "pooled",
+            "rank": 5,
+            "raw_score": 0.3958507180213928,
+            "contribution": 0.015384615384615385
+          },
+          {
+            "channel": "session_gate",
+            "rank": 6,
+            "raw_score": 0.33711254596710205,
+            "contribution": 0.015151515151515152
+          }
+        ],
+        "selected_by": "pooled"
+      },
+      {
+        "item_id": 130,
+        "fusion_score": 0.02900988017658188,
+        "sources": [
+          {
+            "channel": "pooled",
+            "rank": 11,
+            "raw_score": 0.33342301845550537,
+            "contribution": 0.014084507042253521
+          },
+          {
+            "channel": "session_gate",
+            "rank": 7,
+            "raw_score": 0.3096746504306793,
+            "contribution": 0.014925373134328358
+          }
+        ],
+        "selected_by": "session_gate"
+      },
+      {
+        "item_id": 23,
+        "fusion_score": 0.028006267136701922,
+        "sources": [
+          {
+            "channel": "session_gate",
+            "rank": 14,
+            "raw_score": 0.2322627454996109,
+            "contribution": 0.013513513513513514
+          },
+          {
+            "channel": "mind_ref",
+            "rank": 9,
+            "raw_score": 0.3223763704299927,
+            "contribution": 0.014492753623188406
+          }
+        ],
+        "selected_by": "mind_ref"
+      }
+    ],
+    "diagnostics": {
+      "pooled": {
+        "available": true,
+        "input_count": 20,
+        "duplicate_within_channel": 0,
+        "excluded": 0,
+        "eligible_count": 20,
+        "selected_as_owner": 3,
+        "unmet_minimum": 0
+      },
+      "session_gate": {
+        "available": true,
+        "input_count": 20,
+        "duplicate_within_channel": 0,
+        "excluded": 0,
+        "eligible_count": 20,
+        "selected_as_owner": 4,
+        "unmet_minimum": 0
+      },
+      "mind_ref": {
+        "available": true,
+        "input_count": 20,
+        "duplicate_within_channel": 0,
+        "excluded": 0,
+        "eligible_count": 20,
+        "selected_as_owner": 3,
+        "unmet_minimum": 0
+      }
+    },
+    "requested": 10,
+    "returned": 10,
+    "shortfall": 0,
+    "policy": "rank-based RRF; minimums best-effort; maximums constrain selected_by ownership only"
+  }
+}

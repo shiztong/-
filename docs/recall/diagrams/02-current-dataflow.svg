@@ -4,7 +4,7 @@
 <rect width="100%" height="100%" fill="#f8fafc"/>
 <text x="38" y="39" font-size="25" font-weight="700" fill="#0f172a">当前实现 · 从样本到召回结果的数据流</text>
 <text x="40" y="65" font-size="13" fill="#475569">时间留出、六模型训练、选模、内容向量导出、版本校验、精确检索与已看过滤。</text>
-<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 本地已运行</text><circle cx="236" cy="91" r="5" fill="#3b6dd8"/><text x="250" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="428" cy="91" r="5" fill="#c88718"/><text x="442" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="620" cy="91" r="5" fill="#82708e"/><text x="634" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(148.16541666666672,112)">
+<circle cx="44" cy="91" r="5" fill="#16845b"/><text x="58" y="96" font-size="13" fill="#475569">L 模型服务 smoke</text><circle cx="236" cy="91" r="5" fill="#087f8c"/><text x="250" y="96" font-size="13" fill="#475569">C 组件已测试</text><circle cx="428" cy="91" r="5" fill="#3b6dd8"/><text x="442" y="96" font-size="13" fill="#475569">E 外部已核验</text><circle cx="620" cy="91" r="5" fill="#c88718"/><text x="634" y="96" font-size="13" fill="#475569">P 规划待实现</text><circle cx="812" cy="91" r="5" fill="#82708e"/><text x="826" y="96" font-size="13" fill="#475569">X 证据不足</text><g transform="translate(148.16541666666672,112)">
 
 <defs>
   <marker id="02-current-dataflow-arrowhead" markerWidth="8" markerHeight="5" refX="7" refY="2.5" orient="auto">

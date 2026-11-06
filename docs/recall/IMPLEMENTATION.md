@@ -115,3 +115,14 @@ seed17/model_name/
 测试覆盖六模型空历史与反向梯度、padding 不变性、SA 无位置的排列性质、MIND 有效头数、全局未来泄漏拒绝、训练—导出—查询、已看过滤与版本错误。未安装 PyTorch 的标准库环境会显式跳过这些可选测试；完整验证必须使用上述虚拟环境，不能把跳过算通过。
 
 工业接入下一步依次是：真实全局时间窗和标签 → sampled loss 与可推荐目录 → ANN 与增量更新 → 生产特征/服务与频控 → 压测与随机实验。后续工作与收益判据见 [总路标](README.md)。
+
+## 9. 多路融合组件（C，尚未接生产服务）
+
+读取三模型实际导出的查询候选，进行 RRF、资格/已看过滤、去重、owner 配额与来源追踪：
+
+```bash
+/workspace/recsys-venv/bin/python -m tools.fuse_recall_demo \
+  --checkpoint-root artifacts/recall-demo/seed17
+```
+
+`--checkpoint-root` 指向已有训练输出的某个 seed 目录。一键重新训练使用其他输出目录时，相应替换该参数。组件在 `fusion.py`，不改变原六模型 loss、索引或历史实验结果。最小配额 best-effort，最大配额仅限制 selected_by owner，资格服务错误不 fail-open；完整语义见 [最终审查](BEST_PRACTICE_REVIEW.md#6-p0多路融合是独立决策层)。

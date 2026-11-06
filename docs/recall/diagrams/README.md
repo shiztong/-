@@ -2,9 +2,9 @@
 
 由 **beautiful-mermaid 1.1.3** 渲染 Mermaid 源码为 SVG，再由 **@resvg/resvg-js 2.6.2** 导出 PNG。Node 依赖与锁文件保存在 [tools/diagrams](../../../tools/diagrams/package.json)，独立于 Python 推荐服务。
 
-[离线交互图册 index.html](index.html) 支持六图切换、缩放、适应宽度、下载 SVG/PNG，以及点击节点跳转源码或建设任务。GitHub 不执行仓库中的 HTML；下载此目录后本地打开 `index.html`，或直接浏览以下 SVG/PNG。无需启动本地服务器或加载 CDN。
+[离线交互图册 index.html](index.html) 支持七图切换、缩放、适应宽度、下载 SVG/PNG，以及点击节点跳转源码或建设任务。GitHub 不执行仓库中的 HTML；下载此目录后本地打开 `index.html`，或直接浏览以下 SVG/PNG。无需启动本地服务器或加载 CDN。
 
-## 六张图
+## 七张图
 
 | 图 | 说明 | SVG | PNG | 可编辑源码 |
 |---|---|---|---|---|
@@ -14,10 +14,12 @@
 | 04 单向量/多兴趣 | 用户表征、训练 hard readout 与 loss、检索时对有效兴趣取 max、未来 ANN 分头合并 | [矢量图](04-multi-interest-flow.svg) | [高清图](04-multi-interest-flow.png) | [Mermaid](04-multi-interest-flow.mmd) |
 | 05 SDM/序列优化 | 真实会话、时间与行为编码、长期分支、可用性门控、后续训练与服务 | [矢量图](05-sdm-sequence.svg) | [高清图](05-sdm-sequence.png) | [Mermaid](05-sdm-sequence.mmd) |
 | 06 位置消偏 | 观察机制、识别与校准、权重/loss 组件、独立模拟与业务验收 | [矢量图](06-position-debias.svg) | [高清图](06-position-debias.png) | [Mermaid](06-position-debias.mmd) |
+| 07 统一交付依赖 | 从路标 JSON 生成关键能力依赖，联合 SDM/消偏、数据、ANN、融合、状态与实验 | [矢量图](07-delivery-gates.svg) | [高清图](07-delivery-gates.png) | [Mermaid](07-delivery-gates.mmd) |
 
 ## 状态图例与阅读边界
 
-- **绿色 L**：当前仓库有本地可运行参考实现。六模型已做合成数据实验，不代表原厂精确复现或生产上线。
+- **绿色 L**：当前仓库模型/服务已做 smoke。六模型已做合成数据实验，不代表原厂精确复现或生产上线。
+- **青色 C**：组件已测试，尚未完成对应业务训练/服务接线。SDM 新组件、位置权重与候选融合不能由此标记为生产完成。
 - **蓝色 E**：外部源码已核验，未在当前环境完成对应训练复现。
 - **橙色 P**：规划或待实现能力。生产目标图全部为 P。
 - **紫色 X**：所读代码/证据不足以支撑当前声称，例如 EGES 候选的侧信息训练链。
@@ -32,11 +34,13 @@
 
 ```bash
 npm ci --prefix tools/diagrams
+python3 -m tools.check_recall_roadmap --write
 npm --prefix tools/diagrams run render
+python3 -m tools.check_recall_roadmap
 npm --prefix tools/diagrams run check
 ```
 
-当前环境已安装依赖并生成六组 SVG/PNG。修改 `.mmd` 后运行 `render`；标题、说明及节点代码链接在 [render.mjs](../../../tools/diagrams/render.mjs) 中维护。生成器解析节点状态、检查代码符号、计算实际源码行号，不手工硬编码类定义的行数。
+当前环境已安装依赖并生成七组 SVG/PNG。修改 `.mmd` 后运行 `render`；标题、说明及节点代码链接在 [render.mjs](../../../tools/diagrams/render.mjs) 中维护。生成器解析节点状态、检查代码符号、计算实际源码行号，不手工硬编码类定义的行数。07 的 Mermaid 源码由统一 JSON 台账生成；其余被登记的关联节点也会与台账状态校验，避免出现“文档是组件、图里已上线”的漂移。
 
 中文导出使用 Noto Sans CJK SC。默认读取系统的 `NotoSansCJK-Regular.ttc`、`NotoSansCJK-Bold.ttc`；无对应字体时应先安装字体，也可用 `RECALL_DIAGRAM_FONTS` 指定字体文件列表（按操作系统的路径分隔符分开）。当前字体文件哈希记录在 [manifest.json](manifest.json)。跨平台字体版本变化会改变 PNG，需要重新生成再校验。
 

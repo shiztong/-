@@ -1,0 +1,712 @@
+{
+  "schema_version": 1,
+  "review_date": "2026-11-06",
+  "note": "Artifact state is not production readiness. adoption_requires means gates for real deployment, not prerequisites to execute toy code.",
+  "items": [
+    {
+      "id": "R0",
+      "title": "协同与热门回退",
+      "status": "L",
+      "priority": "P1",
+      "scope": "教学服务；无真实业务验证",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [
+        {
+          "path": "recommender/engine.py",
+          "symbol": "Recommender"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "V0",
+        "E0",
+        "AB0"
+      ],
+      "exit_gate": "覆盖与降级效果可追踪",
+      "evidence_scope": "teaching_service",
+      "graph_nodes": {
+        "01-evolution": [
+          "R0"
+        ]
+      }
+    },
+    {
+      "id": "R1",
+      "title": "归一化 ID-MF",
+      "status": "L",
+      "priority": "P1",
+      "scope": "合成数据训练/精确检索；非原厂复现",
+      "doc": "docs/recall/BENCHMARK.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/models.py",
+          "symbol": "MatrixFactorization"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "V0",
+        "E0",
+        "AB0"
+      ],
+      "exit_gate": "真实标签、同预算、上线护栏与成本通过",
+      "evidence_scope": "synthetic_training",
+      "graph_nodes": {
+        "01-evolution": [
+          "R1"
+        ]
+      }
+    },
+    {
+      "id": "R2",
+      "title": "池化双塔",
+      "status": "L",
+      "priority": "P1",
+      "scope": "合成数据训练/精确检索；非原厂复现",
+      "doc": "docs/recall/BENCHMARK.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/models.py",
+          "symbol": "PooledTwoTower"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "V0",
+        "E0",
+        "AB0"
+      ],
+      "exit_gate": "真实标签、同预算、上线护栏与成本通过",
+      "evidence_scope": "synthetic_training",
+      "graph_nodes": {
+        "01-evolution": [
+          "R2"
+        ]
+      }
+    },
+    {
+      "id": "R3",
+      "title": "SDM 风格固定窗口",
+      "status": "L",
+      "priority": "P1",
+      "scope": "合成数据训练/精确检索；非原厂复现",
+      "doc": "docs/recall/BENCHMARK.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/models.py",
+          "symbol": "SessionGateRetriever"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "V0",
+        "E0",
+        "AB0"
+      ],
+      "exit_gate": "真实标签、同预算、上线护栏与成本通过",
+      "evidence_scope": "synthetic_training",
+      "graph_nodes": {
+        "01-evolution": [
+          "R3"
+        ]
+      }
+    },
+    {
+      "id": "R4",
+      "title": "MIND 参考",
+      "status": "L",
+      "priority": "P1",
+      "scope": "合成数据训练/精确检索；非原厂复现",
+      "doc": "docs/recall/BENCHMARK.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/models.py",
+          "symbol": "MINDReference"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "V0",
+        "E0",
+        "AB0"
+      ],
+      "exit_gate": "真实标签、同预算、上线护栏与成本通过",
+      "evidence_scope": "synthetic_training",
+      "graph_nodes": {
+        "01-evolution": [
+          "R4"
+        ]
+      }
+    },
+    {
+      "id": "R5a",
+      "title": "ComiRec-SA 参考",
+      "status": "L",
+      "priority": "P1",
+      "scope": "合成数据训练/精确检索；非原厂复现",
+      "doc": "docs/recall/BENCHMARK.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/models.py",
+          "symbol": "ComiRecSAReference"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "V0",
+        "E0",
+        "AB0"
+      ],
+      "exit_gate": "真实标签、同预算、上线护栏与成本通过",
+      "evidence_scope": "synthetic_training",
+      "graph_nodes": {
+        "01-evolution": [
+          "R5A"
+        ]
+      }
+    },
+    {
+      "id": "R5b",
+      "title": "ComiRec-DR 参考",
+      "status": "L",
+      "priority": "P1",
+      "scope": "合成数据训练/精确检索；非原厂复现",
+      "doc": "docs/recall/BENCHMARK.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/models.py",
+          "symbol": "ComiRecDRReference"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "V0",
+        "E0",
+        "AB0"
+      ],
+      "exit_gate": "真实标签、同预算、上线护栏与成本通过",
+      "evidence_scope": "synthetic_training",
+      "graph_nodes": {
+        "01-evolution": [
+          "R5B"
+        ]
+      }
+    },
+    {
+      "id": "S1",
+      "title": "真实会话与时间特征",
+      "status": "C",
+      "priority": "P0",
+      "scope": "组件已测；未接六模型训练器",
+      "doc": "docs/recall/SDM_SEQUENCE.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/sequence.py",
+          "symbol": "build_sequence_features"
+        }
+      ],
+      "adoption_requires": [
+        "D0"
+      ],
+      "exit_gate": "请求前可见、session与时间单位审计",
+      "evidence_scope": "component_tests",
+      "graph_nodes": {
+        "05-sdm-sequence": [
+          "EVENTS"
+        ],
+        "07-delivery-gates": [
+          "S1"
+        ]
+      }
+    },
+    {
+      "id": "S2",
+      "title": "时间/行为/可用性门控",
+      "status": "C",
+      "priority": "P1",
+      "scope": "组件已测；无升级效果实验",
+      "doc": "docs/recall/SDM_SEQUENCE.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/sequence.py",
+          "symbol": "TimeAwareSessionEncoder"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "S1",
+        "E0"
+      ],
+      "exit_gate": "原/新编码器控制变量实验",
+      "evidence_scope": "component_tests",
+      "graph_nodes": {
+        "05-sdm-sequence": [
+          "TOKEN",
+          "SHORT",
+          "LONG",
+          "GATE"
+        ],
+        "07-delivery-gates": [
+          "S2"
+        ]
+      }
+    },
+    {
+      "id": "B1",
+      "title": "检查概率正例权重",
+      "status": "C",
+      "priority": "P0",
+      "scope": "组件与PBM模拟；未接业务训练",
+      "doc": "docs/recall/POSITION_DEBIAS.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/debias.py",
+          "symbol": "positive_weighted_softmax"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "B2",
+        "E0"
+      ],
+      "exit_gate": "支持集、尺度、ESS、clip敏感性",
+      "evidence_scope": "component_tests",
+      "graph_nodes": {
+        "06-position-debias": [
+          "WEIGHT",
+          "LOSS"
+        ],
+        "07-delivery-gates": [
+          "B1"
+        ]
+      }
+    },
+    {
+      "id": "B2",
+      "title": "真实位置识别与校准",
+      "status": "P",
+      "priority": "P0",
+      "scope": "缺业务随机/可识别校准数据",
+      "doc": "docs/recall/POSITION_DEBIAS.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0"
+      ],
+      "exit_gate": "区分检查率、assignment与action概率",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "B2"
+        ]
+      }
+    },
+    {
+      "id": "R6",
+      "title": "内容语义/多模态冷启动",
+      "status": "P",
+      "priority": "P1",
+      "scope": "本地类别特征不等于多模态",
+      "doc": "docs/recall/README.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0",
+        "T0",
+        "I0",
+        "C0"
+      ],
+      "exit_gate": "零曝光切片与整体有效消费",
+      "evidence_scope": "design",
+      "graph_nodes": {}
+    },
+    {
+      "id": "R7a",
+      "title": "SGL 图协同",
+      "status": "E",
+      "priority": "P2",
+      "scope": "外部作者实现已读、未复现",
+      "doc": "docs/recommendation/22-model-by-model-evidence-audit.md",
+      "core_code": [
+        {
+          "url": "https://github.com/wujcan/SGL/blob/58fe93149ca6fb733639f556343c41f12206ba55/model/general_recommender/SGL.py"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "T0",
+        "I0",
+        "E0"
+      ],
+      "exit_gate": "同图/同采样/同预算基线",
+      "evidence_scope": "external_source",
+      "graph_nodes": {
+        "01-evolution": [
+          "R7"
+        ]
+      }
+    },
+    {
+      "id": "R7b",
+      "title": "EGES 候选复现",
+      "status": "X",
+      "priority": "P2",
+      "scope": "所读候选的侧信息训练链不完整",
+      "doc": "docs/recommendation/22-model-by-model-evidence-audit.md",
+      "core_code": [
+        {
+          "url": "https://github.com/wangzhegeek/EGES/blob/2b3763c646524f18bcd129c01296f914c5cfdd01/gpu_process/EGES_module.py"
+        }
+      ],
+      "adoption_requires": [],
+      "exit_gate": "找到或实现可验证的侧信息loss",
+      "evidence_scope": "unaccepted_source",
+      "graph_nodes": {
+        "01-evolution": [
+          "EG"
+        ]
+      }
+    },
+    {
+      "id": "R8",
+      "title": "多目标与跨层蒸馏",
+      "status": "P",
+      "priority": "P1",
+      "scope": "尚无广候选教师与KD接线",
+      "doc": "docs/recall/README.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0",
+        "T0",
+        "E0"
+      ],
+      "exit_gate": "最终优质候选增量而非仅教师一致",
+      "evidence_scope": "design",
+      "graph_nodes": {}
+    },
+    {
+      "id": "R9",
+      "title": "HSTU/可扩展长序列",
+      "status": "E",
+      "priority": "P2",
+      "scope": "官方源码已读；无本地训练",
+      "doc": "docs/recommendation/13-industry-evidence.md",
+      "core_code": [
+        {
+          "url": "https://github.com/facebookresearch/generative-recommenders/blob/b8e6ff07c5d4c3354b0807ead76b74d771557fd7/generative_recommenders/research/modeling/sequential/hstu.py"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "T0",
+        "I0",
+        "E0"
+      ],
+      "exit_gate": "相同数据/长度/预算前沿改善",
+      "evidence_scope": "external_source",
+      "graph_nodes": {
+        "01-evolution": [
+          "R9"
+        ]
+      }
+    },
+    {
+      "id": "R10",
+      "title": "生成式增量召回",
+      "status": "P",
+      "priority": "P2",
+      "scope": "语义ID/生成/解析三个接口未实现",
+      "doc": "docs/recall/README.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0",
+        "I0",
+        "V0",
+        "E0",
+        "C0"
+      ],
+      "exit_gate": "独有候选覆盖与解码成本达标",
+      "evidence_scope": "design",
+      "graph_nodes": {}
+    },
+    {
+      "id": "D0",
+      "title": "曝光/标签/时点数据合同",
+      "status": "P",
+      "priority": "P0",
+      "scope": "仅有合成事件，缺真实生产日志",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [],
+      "adoption_requires": [],
+      "exit_gate": "曝光机会、成熟标签、ingest/as-of可回放",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "D0"
+        ]
+      }
+    },
+    {
+      "id": "T0",
+      "title": "规模化采样训练",
+      "status": "P",
+      "priority": "P0",
+      "scope": "当前全库CE；无采样概率与假负例流水线",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0"
+      ],
+      "exit_gate": "采样纠正、重复正例、困难负例审计",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "T0"
+        ]
+      }
+    },
+    {
+      "id": "F0",
+      "title": "候选融合与来源追踪",
+      "status": "C",
+      "priority": "P0",
+      "scope": "RRF组件已测并做导出查询smoke；非线上服务",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [
+        {
+          "path": "recommender/retrieval/fusion.py",
+          "symbol": "fuse_candidates"
+        }
+      ],
+      "adoption_requires": [
+        "V0",
+        "E0"
+      ],
+      "exit_gate": "去重/准入/owner配额/缺量与退化可测",
+      "evidence_scope": "component_tests",
+      "graph_nodes": {
+        "01-evolution": [
+          "FUSE"
+        ],
+        "07-delivery-gates": [
+          "F0"
+        ]
+      }
+    },
+    {
+      "id": "I0",
+      "title": "ANN与增量索引",
+      "status": "P",
+      "priority": "P0",
+      "scope": "当前index.pt仅精确向量表",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [],
+      "adoption_requires": [
+        "V0"
+      ],
+      "exit_gate": "exact→ANN损失、过滤补量、新鲜度、尾延迟",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "I0"
+        ]
+      }
+    },
+    {
+      "id": "V0",
+      "title": "资格/版本/删除/回滚",
+      "status": "P",
+      "priority": "P0",
+      "scope": "已有checkpoint校验组件；缺全链路协议",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0"
+      ],
+      "exit_gate": "强屏蔽/过期/删除不漏，模型索引一致回滚",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "V0"
+        ]
+      }
+    },
+    {
+      "id": "C0",
+      "title": "新用户/新内容探索",
+      "status": "P",
+      "priority": "P1",
+      "scope": "暂无OOV全链路与分层探索策略",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0",
+        "F0",
+        "E0"
+      ],
+      "exit_gate": "探索概率、质量保护、发现与长期反馈",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "C0"
+        ]
+      }
+    },
+    {
+      "id": "SF0",
+      "title": "实时状态与特征服务",
+      "status": "P",
+      "priority": "P0",
+      "scope": "离线序列组件不等于在线状态服务",
+      "doc": "docs/recall/SDM_SEQUENCE.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0",
+        "V0"
+      ],
+      "exit_gate": "重复/迟到/重置/删除、反馈到可用延迟",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "SF0"
+        ]
+      }
+    },
+    {
+      "id": "K0",
+      "title": "在线召回编排与降级",
+      "status": "P",
+      "priority": "P0",
+      "scope": "当前仅CPU命令行查询",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [],
+      "adoption_requires": [
+        "F0",
+        "I0",
+        "V0",
+        "SF0"
+      ],
+      "exit_gate": "请求deadline、隔离、降级和P99压测",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "K0"
+        ]
+      }
+    },
+    {
+      "id": "E0",
+      "title": "真实候选评测与归因",
+      "status": "P",
+      "priority": "P0",
+      "scope": "有合成指标；无真实全链路回放",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0"
+      ],
+      "exit_gate": "召回/过滤/融合/粗排损失可定位",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "E0"
+        ]
+      }
+    },
+    {
+      "id": "AB0",
+      "title": "线上实验与商业验收",
+      "status": "P",
+      "priority": "P0",
+      "scope": "无真实用户随机实验",
+      "doc": "docs/recommendation/16-value-and-experiments.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0",
+        "E0",
+        "K0"
+      ],
+      "exit_gate": "独立用户功效、长期护栏、增量成本覆盖",
+      "evidence_scope": "design",
+      "graph_nodes": {
+        "07-delivery-gates": [
+          "AB0"
+        ]
+      }
+    },
+    {
+      "id": "ECO0",
+      "title": "供给与长期生态",
+      "status": "P",
+      "priority": "P1",
+      "scope": "无作者/主题集中度与探索生态监控",
+      "doc": "docs/recall/BEST_PRACTICE_REVIEW.md",
+      "core_code": [],
+      "adoption_requires": [
+        "D0",
+        "C0",
+        "AB0"
+      ],
+      "exit_gate": "优质新内容发现、供给质量与用户体验",
+      "evidence_scope": "design",
+      "graph_nodes": {}
+    },
+    {
+      "id": "E1",
+      "title": "SE 字段重权",
+      "status": "E",
+      "priority": "P2",
+      "scope": "外部组件已读，未接本地塔",
+      "doc": "docs/recommendation/22-model-by-model-evidence-audit.md",
+      "core_code": [
+        {
+          "url": "https://github.com/shenweichen/DeepCTR/blob/1b5fe40e158d1ee6af8b1d9df217a5ed5aea9136/deepctr/layers/interaction.py#L1067"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "T0",
+        "E0"
+      ],
+      "exit_gate": "明确底座/目标/来源后，做正交消融与成本检查",
+      "evidence_scope": "external_source",
+      "graph_nodes": {}
+    },
+    {
+      "id": "E2",
+      "title": "SSL 正交训练增强",
+      "status": "E",
+      "priority": "P2",
+      "scope": "具体SGL已读；泛化到其他底座待验证",
+      "doc": "docs/recommendation/22-model-by-model-evidence-audit.md",
+      "core_code": [
+        {
+          "url": "https://github.com/wujcan/SGL/blob/58fe93149ca6fb733639f556343c41f12206ba55/model/general_recommender/SGL.py"
+        }
+      ],
+      "adoption_requires": [
+        "D0",
+        "T0",
+        "E0"
+      ],
+      "exit_gate": "明确底座/目标/来源后，做正交消融与成本检查",
+      "evidence_scope": "external_source",
+      "graph_nodes": {}
+    },
+    {
+      "id": "XREC",
+      "title": "动态兴趣 X-Rec 名称",
+      "status": "X",
+      "priority": "P2",
+      "scope": "已定位同名是解释模型，非所述动态兴趣召回",
+      "doc": "docs/recommendation/22-model-by-model-evidence-audit.md",
+      "core_code": [
+        {
+          "url": "https://github.com/HKUDS/XRec/tree/8b73f3f04f6dde71cd1339654b087bac0e2d80d5"
+        }
+      ],
+      "adoption_requires": [],
+      "exit_gate": "提供唯一论文标题与可信实现",
+      "evidence_scope": "unaccepted_source",
+      "graph_nodes": {}
+    }
+  ]
+}

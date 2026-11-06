@@ -4,8 +4,8 @@ graph TD
   CALIB["识别与独立校准 · P<br/>随机位置 / PBM 假设 / 尺度"]
   ULTRA["ULTRA 研究源码 · E<br/>IPW / DLA / 继承损失"]
   PROP["propensity sidecar · P<br/>检查概率 ≠ 策略概率 ≠ CTR"]
-  WEIGHT["权重组件 · L<br/>零支持拒绝 / floor / clip / ESS"]
-  LOSS["正例 softmax 权重组件 · L<br/>IPS 或归一化正例目标"]
+  WEIGHT["权重组件 · C<br/>零支持拒绝 / floor / clip / ESS"]
+  LOSS["正例 softmax 权重组件 · C<br/>IPS 或归一化正例目标"]
   FIT["真实召回训练接线 · P<br/>当前六模型尚未接入位置权重"]
   EVAL["独立干预集与线上验收 · P<br/>方差 / 支持集 / 满意度"]
   SIM["独立 PBM 模拟 · L<br/>已知检查率 / 随机校准"]
@@ -23,6 +23,8 @@ graph TD
   classDef local fill:#e7f5ee,stroke:#16845b,color:#145239
   classDef external fill:#e9f0ff,stroke:#3b6dd8,color:#234681
   classDef planned fill:#fff3dc,stroke:#c88718,color:#785014
-  class WEIGHT,LOSS,SIM,RESULT local
+  class SIM,RESULT local
   class ULTRA external
   class LOGS,SCENE,CALIB,PROP,FIT,EVAL planned
+  classDef component fill:#e1f4f5,stroke:#087f8c,color:#075c65
+  class WEIGHT,LOSS component
